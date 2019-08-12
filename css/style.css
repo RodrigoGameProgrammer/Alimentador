@@ -1,0 +1,15 @@
+
+#bg-login{
+	background-image: url(../img/bg-login.jpg);
+	background-repeat: no-repeat;
+	position: fixed; /* posição fixa para que a possível rolagem da tela não revele espaços em branco */
+    width: 100%;
+    height: 100%;
+}
+
+.h-bg-login{
+	min-height: 900px;
+	display: flex;
+	justify-content: center;
+	align-items: center; /** ISSO AQUI ALINHA VERTICALMENTE */
+}
