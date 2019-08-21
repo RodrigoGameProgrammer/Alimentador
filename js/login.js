@@ -1,4 +1,7 @@
 
+
+//----VERIFICAR O ESTADO DA SESSÃO----
+
 firebase.auth().onAuthStateChanged(function(user) {
   
   if (user) {
@@ -10,21 +13,19 @@ firebase.auth().onAuthStateChanged(function(user) {
     var user = firebase.auth().currentUser;
 
 	if(user != null){
-
 		var email_id = user.email;
-
 		document.getElementById("user_id").innerHTML = "Bem-Vindo: " + user.email;
-
 	}
-
-  } else {
-
-  	  document.getElementById("bg-login").style.display = "block";
-    document.getElementById("bg-login2").style.display = "none";
   }
-
+  else{
+	document.getElementById("bg-login").style.display = "block";
+	document.getElementById("bg-login2").style.display = "none";
+  }
 });
 
+//----LOGIN----
+
+//Email e Senha
 function login(){
 
 	var userEmail = document.getElementById("email_field").value;
@@ -39,6 +40,8 @@ function login(){
 	  // ...
 	});
 }
+
+//----LOGOUT----
 
 function logout(){
 
