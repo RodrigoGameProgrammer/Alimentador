@@ -1,4 +1,3 @@
-
 function btnLogin(){
 	location.href="login.html"
 }

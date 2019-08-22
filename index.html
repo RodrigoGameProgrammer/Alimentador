@@ -16,7 +16,7 @@
 </head>
 <body style="background-color: pink">
 
-
+	<!--MENU-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -35,33 +35,45 @@
 				</li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				<div class="form-group">
+					<label for="email_cadastro" class="col-form-label">Email</label>
+					<input type="email" class="form-control" id="email_field" placeholder="Email">
+				</div>
+
+				<div class="form-group">
+					<label for="senha_cadastro" class="col-form-label">Senha</label>
+					<input type="password" class="form-control" id="password_field" placeholder="Senha" minlength="8" required>
+				</div>
+
+				<button type="button" class="btn btn-outline-success" onclick="login()">Entrar</button>
+				<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" data-whatever="cadastrar">Criar Conta</button>
 			</form>
 		</div>
 	</nav>
-	<ul class="nav justify-content-center">
-		<li class="nav-item">
-			<a class="nav-link active" href="#">Ativo</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="#">Link</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="#">Link</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link disabled" href="#">Desativado</a>
-		</li>
-	</ul>
 
+	<!--Teste-->
+	<p id = "user_id"></p>
+	<button type="button" class="btn btn-outline-success" onclick="logout()">Sair</button>
+	<button type="button" class="btn btn-outline-success" onclick="writeUserData()">Banco</button>
+
+	<div class="col-md-4">
+		<form>
+				<div class="form-group">
+					<label for="email_cadastro" class="col-form-label">Nome</label>
+					<input type="email" class="form-control" id="nome" placeholder="Nome">
+				</div>
+
+				<div class="form-group">
+					<label for="senha_cadastro" class="col-form-label">Idade</label>
+					<input type="password" class="form-control" id="idade" placeholder="Idade" minlength="8" required>
+				</div>
+
+				<button type="button" class="btn btn-outline-success" id="btnTeste" onclick="adicionaDado()">TestarDatabase</button>
+			</form>
+	</div>
+
+	<!--MODAL-->
 	<div>
-		<button type="button" class="btn btn-outline-success" onclick="btnLogin()">Entrar</button>
-
-		<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" data-whatever="cadastrar">Criar Conta</button>
-
-
-
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -76,7 +88,8 @@
 
 							<div class="form-group">
 								<label for="email_cadastro" class="col-form-label">Email</label>
-								<input type="email" class="form-control" id="email_cadastro">
+								<input type="email" class="form-control" id="email_cadastro" placeholder="Seu Email">
+								<small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
 							</div>
 
 							<div class="form-group">
@@ -113,12 +126,13 @@
 	https://firebase.google.com/docs/web/setup#config-web-app -->
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
-	<script src="js/firebase.js"></script>
-	<script src="js/cadastro.js"></script>
-	<script src="js/controle.js"></script>
 
 	<!--=========================================JAVASCRIPT======================================================-->
-
+	<script src="js/firebase.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/cadastro.js"></script>
+	<script src="js/database.js"></script>
+	<script src="js/controle.js"></script>
 
 </body>
 </html>
