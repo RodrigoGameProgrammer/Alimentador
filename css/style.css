@@ -13,3 +13,21 @@
 	justify-content: center;
 	align-items: center; /** ISSO AQUI ALINHA VERTICALMENTE */
 }
+
+input{
+	text-align: center;
+}
+
+
+.bg {
+  /* The image used */
+  background-image: url("https://i.redd.it/f8q007sbcnc11.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
