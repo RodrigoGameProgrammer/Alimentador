@@ -31,3 +31,8 @@ input{
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.margin20{
+	margin-top: 20%;
+	margin-bottom: 20%;
+}

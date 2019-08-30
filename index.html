@@ -16,125 +16,8 @@
 </head>
 <body class="bg" style="background-color: pink">
 
-	<div class="container-fluid d-flex justify-content-center" style="border:red 1px solid">
-		<div class="row w-75" style="border:blue 1px solid; ">
-			<div class="col-sm"  align="center" style="border:red 1px solid; margin-top: 20%; margin-bottom: 20%">
-				<form class="w-75">
-					<div class="form-group">
-						<input type="email" class="form-control form-control-lg w-50" id="email_field" aria-describedby="emailHelp" placeholder="Email">
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control form-control-lg w-50" id="password_field" placeholder="Senha">
-					</div>
-					<!--<div class="form-group form-check">
-						<input type="checkbox" class="form-check-input" id="exampleCheck1">
-						<label class="form-check-label" for="exampleCheck1">Lembre-se de mim</label>
-					</div>-->
-					<div>
-						<button type="button" class="btn btn-success btn-lg w-25" onclick="login()">Entrar</button>
-					</div><br>
-					<div>
-						<button type="button" class="btn btn-success btn-lg w-25" data-toggle="modal" data-target="#exampleModal" data-whatever="cadastrar">Criar Conta</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-	<!--MENU
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-			<a class="navbar-brand" href="#">Hidden brand</a>
-			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-				</li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<div class="form-group">
-					<label for="email_cadastro" class="col-form-label">Email</label>
-					<input type="email" class="form-control" id="email_field" placeholder="Email">
-				</div>
-
-				<div class="form-group">
-					<label for="senha_cadastro" class="col-form-label">Senha</label>
-					<input type="password" class="form-control" id="password_field" placeholder="Senha" minlength="8" required>
-				</div>
-
-				<button type="button" class="btn btn-outline-success" onclick="login()">Entrar</button>
-				<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" data-whatever="cadastrar">Criar Conta</button>
-			</form>
-		</div>
-	</nav>
--->
-	<!--Teste
-	<p id = "user_id"></p>
-	<button type="button" class="btn btn-outline-success" onclick="logout()">Sair</button>
-	<button type="button" class="btn btn-outline-success" onclick="writeUserData()">Banco</button>
-
-	<div class="col-md-4">
-		<form>
-				<div class="form-group">
-					<label for="email_cadastro" class="col-form-label">Nome</label>
-					<input type="email" class="form-control" id="nome" placeholder="Nome">
-				</div>
-
-				<div class="form-group">
-					<label for="senha_cadastro" class="col-form-label">Idade</label>
-					<input type="password" class="form-control" id="idade" placeholder="Idade" minlength="8" required>
-				</div>
-
-				<button type="button" class="btn btn-outline-success" id="btnTeste" onclick="adicionaDado()">TestarDatabase</button>
-			</form>
-	</div>
--->
-	<!--MODAL-->
-	<div>
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Criar Conta</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form>
-
-							<div class="form-group">
-								<label for="email_cadastro" class="col-form-label">Email</label>
-								<input type="email" class="form-control" id="email_cadastro" placeholder="Seu Email">
-								<small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
-							</div>
-
-							<div class="form-group">
-								<label for="senha_cadastro" class="col-form-label">Senha</label>
-								<input type="password" class="form-control" id="senha_cadastro" placeholder="Senha" minlength="8" required>
-							</div>
-
-							<div class="form-group">
-								<label for="confirmar_senha_cadastro" class="col-form-label">Confirmar Senha</label>
-								<input type="password" class="form-control" id="confirmar_senha_cadastro" placeholder="Confirmar Senha" minlength="8" required>
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" onclick="cadastro()">Criar Conta</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<h1 id="user_id" class="col-form-label">Email</h1>
+	<button type="button" class="btn btn-success btn-lg w-25" onclick="logout()">Sair</button>
 
 <!--=========================================BOOTSTRAP======================================================-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -155,9 +38,7 @@
 	<!--=========================================JAVASCRIPT======================================================-->
 	<script src="js/firebase.js"></script>
 	<script src="js/login.js"></script>
-	<script src="js/cadastro.js"></script>
-	<script src="js/database.js"></script>
-	<script src="js/controle.js"></script>
-
+	<script src="js/session.js"></script>
+	<script src="js/database"></script>
 </body>
 </html>

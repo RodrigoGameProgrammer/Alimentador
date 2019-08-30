@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF=8">
+	<!--Icone da barra
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">-->
+
+	<!--=========================================BOOTSTRAP==================================================-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!--===========================================CSS======================================================-->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<title>Alimentador</title>
+</head>
+<body>
+
+	<div id="bg-login" style="border:red solid 1px">
+		<div class="container h-bg-login" style="border:blue solid 1px">
+			<form>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Endereço de email</label>
+					<input type="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Seu email">
+					<small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Senha</label>
+					<input type="password" class="form-control" id="password_field" placeholder="Senha">
+				</div>
+				<button type="button" class="btn btn-primary" onclick="login()">Entrar</button>
+			</form>		
+		</div>
+	</div>
+
+	<div id="bg-login2" style="border:red solid 1px">
+		<div class="container h-bg-login" style="border:blue solid 1px">
+			<form>
+				<p id = "user_id"></p>
+				<button type="button" class="btn btn-outline-success" onclick="logout()">Sair</button>
+				<button type="button" class="btn btn-outline-success" onclick="dadosUser()">Dados</button>
+			</form>		
+		</div>
+	</div>
+
+
+
+	<!--=========================================BOOTSTRAP======================================================-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+	<!--=========================================FIREBASE========================================================-->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+	https://firebase.google.com/docs/web/setup#config-web-app -->
+	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+	<script src="js/firebase.js"></script>
+
+	<!--=========================================JAVASCRIPT======================================================-->
+
+
+</body>
+</html>
