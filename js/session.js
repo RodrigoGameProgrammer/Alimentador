@@ -7,6 +7,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     var user = firebase.auth().currentUser;
 	var email_id = user.email;
 	document.getElementById("user_id").innerHTML = "Bem-Vindo: " + user.email;
+	document.getElementById("user_id").style.color = "white";
 	console.log(user);
 	
 

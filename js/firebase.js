@@ -6,7 +6,7 @@
     authDomain: "alimenta-a5a35.firebaseapp.com",
     databaseURL: "https://alimenta-a5a35.firebaseio.com",
     projectId: "alimenta-a5a35",
-    storageBucket: "",
+    storageBucket: "gs://alimenta-a5a35.appspot.com/",
     messagingSenderId: "394645816213",
     appId: "1:394645816213:web:4c3d4a65ab98067a"
   };

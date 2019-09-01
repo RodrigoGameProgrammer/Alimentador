@@ -14,23 +14,54 @@
 
 	<title>Alimentador</title>
 </head>
-<body class="bg" style="background-color: pink">
-
-	<h1 id="user_id" class="col-form-label">Email</h1>
-	<button type="button" class="btn btn-success btn-lg w-25" onclick="logout()">Sair</button>
-
-<!--=========================================BOOTSTRAP======================================================-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<body class="bg2" style="background-color: pink">
 
 
-<!--=========================================FIREBASE========================================================-->
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+
+	<div class="container-fluid" style="border:red 1px solid">
+
+		<div class="row w-75 center-me">
+				<h1 id="user_id" class="col-form-label">Email</h1>
+			</div>
+
+		<div class="row w-75 center-me" style="border:blue 1px solid; ">
+			
+			<div class="col-sm margin-tb-20"  align="center" style="border:red 1px solid;">	
+				<h1 id="" class="col-form-label">Agendar Horário</h1>
+			</div>
+
+			<div class="col-sm margin-tb-20"  align="center" style="border:red 1px solid;">
+				<h1 id="" class="col-form-label">Ver Horários Agendados</h1>
+			</div>
+
+			<div class="col-sm margin-tb-20"  align="center" style="border:red 1px solid;">
+				<h1 id="" class="col-form-label">Logs</h1>
+				
+			</div>
+		</div>
+
+		<div class="row w-75 center-me" style="border:black 1px solid">
+			<div class="col-sm"  align="center">
+				<button type="button" class="btn btn-success btn-lg w-25" onclick="logout()">Sair</button>
+				<button type="button" class="btn btn-success btn-lg w-25" onclick="vai()">Dados Database</button>
+				<button type="button" class="btn btn-success btn-lg w-25" onclick="atualizaPerfil()">Atualizar Perfil</button>
+			</div>
+		</div>
+	</div>
 
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+	<!--=========================================BOOTSTRAP======================================================-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+	<!--=========================================FIREBASE========================================================-->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
 	https://firebase.google.com/docs/web/setup#config-web-app -->
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
@@ -39,6 +70,6 @@
 	<script src="js/firebase.js"></script>
 	<script src="js/login.js"></script>
 	<script src="js/session.js"></script>
-	<script src="js/database"></script>
+	<script src="js/database.js"></script>
 </body>
 </html>

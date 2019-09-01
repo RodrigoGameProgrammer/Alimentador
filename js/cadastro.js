@@ -7,7 +7,10 @@ function cadastro(){
 
 	if(userPasswordCadastro == userPasswordConfirma){
 
-		firebase.auth().createUserWithEmailAndPassword(userEmailCadastro, userPasswordCadastro).catch(function(error) {
+		firebase.auth().createUserWithEmailAndPassword(userEmailCadastro, userPasswordCadastro).then(function(){
+		window.location.href = "index.html";
+
+	}).catch(function(error) {
 		  // Handle Errors here.
 		  var errorCode = error.code;
 		  var errorMessage = error.message;
