@@ -28,18 +28,23 @@ var qtdRacao = null;
 var horario = null;
 var servHorario = null;
 
-function createData() {
+function agendar() {
 
-	 qtdPorc = document.getElementById("qtdPorc").value;;
-	 qtdRacao = document.getElementById("qtdRacao").value;
-	 horario = document.getElementById("horario").value;
-	 servHorario = document.getElementById("servHorario").value;
-console.log(qtdPorc);
+	qtdPorc = parseInt(document.getElementById("qtdPorc").value);
+	qtdRacao = parseInt(document.getElementById("qtdRacao").value);
+	horario = document.getElementById("horario").value.toString();
+	servHorario = document.getElementById("servHorario").value.toString();
+
+	console.log(qtdPorc);
+	console.log(qtdRacao);
+	console.log(horario);
+	console.log(servHorario);
+
 	firebase.database().ref('users/' + uid).set({
 		qtdPorcao: qtdPorc,
 		qtdRacao: qtdRacao,
 		horario: horario,
-		servHorario: servHorario
+		servHorario: servHorario,
 	}, function (error) {
 		if (error) {
 			// The write failed...
@@ -49,9 +54,23 @@ console.log(qtdPorc);
 	});
 }
 
-function readData() {
+function verAgendamento() {
 	firebase.database().ref('users/' + uid).on('value', (snap) => {
+		var qtdPorc2 = snap.child("qtdPorcao").val();
+		var qtdRacao2 = snap.child("qtdRacao").val();
+		var horario2 = snap.child("horario").val();
+		var servHorario2 = snap.child("servHorario").val();
+
 		console.log(snap.val());
+		console.log(qtdPorc2 );
+		console.log(qtdRacao2);
+		console.log(horario2);
+		console.log(servHorario2);
+
+		document.getElementById("selQuant2").innerHTML = qtdPorc2;
+		document.getElementById("iptPortion2").innerHTML = qtdRacao2;
+		document.getElementById("iptTime2").innerHTML = horario2;
+		document.getElementById("iptInterval2").innerHTML = servHorario2;
 	});
 }
 

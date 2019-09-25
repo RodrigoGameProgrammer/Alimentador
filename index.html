@@ -27,11 +27,10 @@
       <h1 id="user_id" class="col-form-label">Email</h1>
     </div>
 
+    <!----MENU---->
+
     <div class="row w-75 center-me" style="border:blue 1px solid; ">
 
-      <div class="col-sm margin-tb-20" align="center" style="border:red 1px solid;">
-        <h1 id="" class="col-form-label">Agendar Horário</h1>
-      </div>
       <div class="col-sm margin-tb-20" align="center" style="border:red 1px solid;">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mdlAgendamento">
           Agendamento
@@ -39,15 +38,20 @@
       </div>
 
       <div class="col-sm margin-tb-20" align="center" style="border:red 1px solid;">
-        <h1 id="" class="col-form-label">Ver Horários Agendados</h1>
+        <button type="button" class="btn btn-primary" onclick="verAgendamento()" data-toggle="modal" data-target="#mdlVerAgendamento">
+          Horário Agendado
+        </button>
       </div>
 
       <div class="col-sm margin-tb-20" align="center" style="border:red 1px solid;">
-        <h1 id="" class="col-form-label">Logs</h1>
-
+        <button type="button" class="btn btn-primary">
+          Logs
+        </button>
       </div>
+      
     </div>
 
+    <!----MODAL AGENDAR---->
 
     <div class="modal fade" id="mdlAgendamento">
       <div class="modal-dialog modal-sm">
@@ -87,26 +91,67 @@
               </div>
               <div class="form-group">
                 <label for="iptPortion">Quantidade de ração (em g):</label>
-                <input id="qtdRacao" required type="number" step="5" class="form-control" name="iptPortion" min="10" max="125" />
+                <input id="qtdRacao" required type="number" step="5" class="form-control" name="iptPortion" min="10"
+                  max="125" />
               </div>
-              <button type="button" class="btn btn-primary" onclick="createData()">Agendar</button>
             </form>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">
-              Cancelar
-            </button>
+            <button type="button" class="btn btn-primary" onclick="agendar()">Agendar</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
       </div>
     </div>
 
+
+    <!----MODAL VER HORÁRIOS AGENDADOS---->
+
+    <div class="modal fade" id="mdlVerAgendamento">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Horário Agendado</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+  
+            <div class="modal-body">
+              <form action="" class="align-content-start">
+                <div class="form-group">
+                  <label for="selQuant2">Quantas porções?</label>
+                  <label type="text" id="selQuant2" class="form-control" ></label>
+                </div>
+                <div class="form-group">
+                  <label for="iptTime2">Primeiro horário:</label>
+                  <label type="text" id="iptTime2" class="form-control" ></label>
+                </div>
+                <div class="form-group">
+                  <label for="iptInterval2">Servir a cada:</label>
+                  <label type="text" id="iptInterval2" class="form-control" ></label>
+                </div>
+                <div class="form-group">
+                  <label for="iptPortion2">Quantidade de ração (em g):</label>
+                  <label type="text" id="iptPortion2" class="form-control" ></label>
+                </div>
+              </form>
+            </div>
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="">Editar</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!----BOTOES INFERIORES---->
     <div class="row w-75 center-me" style="border:black 1px solid">
       <div class="col-sm" align="center">
         <button type="button" class="btn btn-success btn-lg w-25" onclick="logout()">Sair</button>
-        <button type="button" class="btn btn-success btn-lg w-25" onclick="createData()">Criar Database</button>
-        <button type="button" class="btn btn-success btn-lg w-25" onclick="readData()">Ler dados</button>
+        <button type="button" class="btn btn-success btn-lg w-25" onclick="verAgendamento()">Ler dados</button>
         <button type="button" class="btn btn-success btn-lg w-25" onclick="updateData()">Atualizar Dados</button>
         <button type="button" class="btn btn-success btn-lg w-25" onclick="deleteData()">Deletar dados</button>
       </div>

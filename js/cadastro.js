@@ -1,23 +1,23 @@
 
-function cadastro(){
+function cadastro() {
 
 	var userEmailCadastro = document.getElementById("email_cadastro").value;
 	var userPasswordCadastro = document.getElementById("senha_cadastro").value;
 	var userPasswordConfirma = document.getElementById("confirmar_senha_cadastro").value;
 
-	if(userPasswordCadastro == userPasswordConfirma){
+	if (userPasswordCadastro == userPasswordConfirma) {
 
-		firebase.auth().createUserWithEmailAndPassword(userEmailCadastro, userPasswordCadastro).then(function(){
-		window.location.href = "index.html";
+		firebase.auth().createUserWithEmailAndPassword(userEmailCadastro, userPasswordCadastro).then(function () {
+			window.location.href = "index.html";
 
-	}).catch(function(error) {
-		  // Handle Errors here.
-		  var errorCode = error.code;
-		  var errorMessage = error.message;
-		  // ...
+		}).catch(function (error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			// ...
 		});
-		
-	}else{
+
+	} else {
 		alert("Senha Diferente");
 	}
 }

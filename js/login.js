@@ -2,36 +2,36 @@
 //----LOGIN----//
 
 //Email e Senha
-function login(){
+function login() {
 
 	var userEmail = document.getElementById("email_field").value;
 	var userPassword = document.getElementById("password_field").value;
 
-	firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).then(function(){
+	firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).then(function () {
 		window.location.href = "index.html";
 
-	}).catch(function(error) {
-	  // Handle Errors here.
-	  var errorCode = error.code;
-	  var errorMessage = error.message;
+	}).catch(function (error) {
+		// Handle Errors here.
+		var errorCode = error.code;
+		var errorMessage = error.message;
 
-	  window.alert("Error: " + errorMessage);
+		window.alert("Error: " + errorMessage);
 
 
-	  // ...
+		// ...
 	});
 }
 
 //----LOGOUT----//
 
-function logout(){
+function logout() {
 
-	firebase.auth().signOut().then(function() {
-	  // Sign-out successful.
-	  window.location.href = "login.html";
-	  
-	}).catch(function(error) {
-	  // An error happened.
+	firebase.auth().signOut().then(function () {
+		// Sign-out successful.
+		window.location.href = "login.html";
+
+	}).catch(function (error) {
+		// An error happened.
 	});
 
 }
