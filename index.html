@@ -1,75 +1,145 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="UTF=8">
-	<!--Icone da barra
+  <meta charset="UTF=8">
+  <!--Icone da barra
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">-->
 
-	<!--=========================================BOOTSTRAP==================================================-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!--=========================================BOOTSTRAP==================================================-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-	<!--===========================================CSS======================================================-->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <!--===========================================CSS======================================================-->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
-	<title>Alimentador</title>
+  <title>Alimentador</title>
 </head>
+
 <body class="bg2" style="background-color: pink">
 
 
 
-	<div class="container-fluid" style="border:red 1px solid">
+  <div class="container-fluid" style="border:red 1px solid">
 
-		<div class="row w-75 center-me">
-				<h1 id="user_id" class="col-form-label">Email</h1>
-			</div>
+    <div class="row w-75 center-me">
+      <h1 id="user_id" class="col-form-label">Email</h1>
+    </div>
 
-		<div class="row w-75 center-me" style="border:blue 1px solid; ">
-			
-			<div class="col-sm margin-tb-20"  align="center" style="border:red 1px solid;">	
-				<h1 id="" class="col-form-label">Agendar Horário</h1>
-			</div>
+    <div class="row w-75 center-me" style="border:blue 1px solid; ">
 
-			<div class="col-sm margin-tb-20"  align="center" style="border:red 1px solid;">
-				<h1 id="" class="col-form-label">Ver Horários Agendados</h1>
-			</div>
+      <div class="col-sm margin-tb-20" align="center" style="border:red 1px solid;">
+        <h1 id="" class="col-form-label">Agendar Horário</h1>
+      </div>
+      <div class="col-sm margin-tb-20" align="center" style="border:red 1px solid;">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mdlAgendamento">
+          Agendamento
+        </button>
+      </div>
 
-			<div class="col-sm margin-tb-20"  align="center" style="border:red 1px solid;">
-				<h1 id="" class="col-form-label">Logs</h1>
-				
-			</div>
-		</div>
+      <div class="col-sm margin-tb-20" align="center" style="border:red 1px solid;">
+        <h1 id="" class="col-form-label">Ver Horários Agendados</h1>
+      </div>
 
-		<div class="row w-75 center-me" style="border:black 1px solid">
-			<div class="col-sm"  align="center">
-				<button type="button" class="btn btn-success btn-lg w-25" onclick="logout()">Sair</button>
-				<button type="button" class="btn btn-success btn-lg w-25" onclick="vai()">Dados Database</button>
-				<button type="button" class="btn btn-success btn-lg w-25" onclick="atualizaPerfil()">Atualizar Perfil</button>
-			</div>
-		</div>
-	</div>
+      <div class="col-sm margin-tb-20" align="center" style="border:red 1px solid;">
+        <h1 id="" class="col-form-label">Logs</h1>
+
+      </div>
+    </div>
 
 
-	<!--=========================================BOOTSTRAP======================================================-->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <div class="modal fade" id="mdlAgendamento">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Agendamento</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form action="" class="align-content-start">
+              <div class="form-group">
+                <label for="selQuant">Quantas porções?</label>
+                <select id="qtdPorc" required class="form-control" name="selQuant">
+                  <option value="">--</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="iptTime">Primeiro horário:</label>
+                <input id="horario" required type="time" step="900" class="form-control" name="iptTime" />
+              </div>
+              <div class="form-group">
+                <label for="iptInterval">Servir a cada:</label>
+                <input id="servHorario" required type="time" step="900" class="form-control" name="iptInterval" />
+              </div>
+              <div class="form-group">
+                <label for="iptPortion">Quantidade de ração (em g):</label>
+                <input id="qtdRacao" required type="number" step="5" class="form-control" name="iptPortion" min="10" max="125" />
+              </div>
+              <button type="button" class="btn btn-primary" onclick="createData()">Agendar</button>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row w-75 center-me" style="border:black 1px solid">
+      <div class="col-sm" align="center">
+        <button type="button" class="btn btn-success btn-lg w-25" onclick="logout()">Sair</button>
+        <button type="button" class="btn btn-success btn-lg w-25" onclick="createData()">Criar Database</button>
+        <button type="button" class="btn btn-success btn-lg w-25" onclick="readData()">Ler dados</button>
+        <button type="button" class="btn btn-success btn-lg w-25" onclick="updateData()">Atualizar Dados</button>
+        <button type="button" class="btn btn-success btn-lg w-25" onclick="deleteData()">Deletar dados</button>
+      </div>
+    </div>
+  </div>
 
 
-	<!--=========================================FIREBASE========================================================-->
-	<!-- The core Firebase JS SDK is always required and must be listed first -->
-	<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+  <!--=========================================BOOTSTRAP======================================================-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 
 
-	<!-- TODO: Add SDKs for Firebase products that you want to use
+  <!--=========================================FIREBASE========================================================-->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
 	https://firebase.google.com/docs/web/setup#config-web-app -->
-	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 
-	<!--=========================================JAVASCRIPT======================================================-->
-	<script src="js/firebase.js"></script>
-	<script src="js/login.js"></script>
-	<script src="js/session.js"></script>
-	<script src="js/database.js"></script>
+  <!--=========================================JAVASCRIPT======================================================-->
+  <script src="js/firebase.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/session.js"></script>
 </body>
+
 </html>

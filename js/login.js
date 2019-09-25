@@ -1,4 +1,5 @@
-//----LOGIN----
+
+//----LOGIN----//
 
 //Email e Senha
 function login(){
@@ -21,14 +22,14 @@ function login(){
 	});
 }
 
-//----LOGOUT----
+//----LOGOUT----//
 
 function logout(){
 
 	firebase.auth().signOut().then(function() {
 	  // Sign-out successful.
 	  window.location.href = "login.html";
-	  document.getElementById("user_id").innerHTML = "Sem usuário conectado";
+	  
 	}).catch(function(error) {
 	  // An error happened.
 	});
