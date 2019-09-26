@@ -13,3 +13,21 @@
     }
   }
 }
+
+
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "auth !== null && auth.uid === $uid",
+        ".write": "auth !== null && auth.uid === $uid",
+        ".validate": "newData.hasChildren(['qtdPorcao', 'qtdRacao', 'horario', 'servHorario'])",
+        "qtdPorcao": {".validate": "newData.isNumber()"},
+        "qtdRacao": {".validate": "newData.isNumber()"},
+        "horario": {".validate": "newData.isString()"},
+        "servHorario": {".validate": "newData.isString()"},
+        "$other": {".validate": false}
+      }
+    }
+  }
+}

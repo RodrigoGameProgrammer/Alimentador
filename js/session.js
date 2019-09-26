@@ -89,7 +89,7 @@ function updateData() {
 	});
 }
 
-function deleteData() {
+function deletarAgendamento() {
 	firebase.database().ref('users/' + uid).remove();
 }
 

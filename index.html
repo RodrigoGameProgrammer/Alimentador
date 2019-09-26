@@ -98,7 +98,7 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick="agendar()">Agendar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="agendar()">Agendar</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
@@ -140,7 +140,8 @@
             </div>
   
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" onclick="">Editar</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mdlAgendamento" data-dismiss="modal">Editar</button>
+              <button type="button" class="btn btn-primary" onclick="deletarAgendamento()">Deletar</button>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             </div>
           </div>
@@ -151,9 +152,7 @@
     <div class="row w-75 center-me" style="border:black 1px solid">
       <div class="col-sm" align="center">
         <button type="button" class="btn btn-success btn-lg w-25" onclick="logout()">Sair</button>
-        <button type="button" class="btn btn-success btn-lg w-25" onclick="verAgendamento()">Ler dados</button>
         <button type="button" class="btn btn-success btn-lg w-25" onclick="updateData()">Atualizar Dados</button>
-        <button type="button" class="btn btn-success btn-lg w-25" onclick="deleteData()">Deletar dados</button>
       </div>
     </div>
   </div>
