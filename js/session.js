@@ -67,10 +67,14 @@ function verAgendamento() {
 		console.log(horario2);
 		console.log(servHorario2);
 
-		document.getElementById("selQuant2").innerHTML = qtdPorc2;
-		document.getElementById("iptPortion2").innerHTML = qtdRacao2;
-		document.getElementById("iptTime2").innerHTML = horario2;
-		document.getElementById("iptInterval2").innerHTML = servHorario2;
+		document.getElementById("quantidadeP").value = qtdPorc2;
+		document.getElementById("horarioP").value = horario2;
+		document.getElementById("horarioS").value = servHorario2;
+		document.getElementById("quantidadeR").value = qtdRacao2;
+
+		
+		
+		
 	});
 }
 

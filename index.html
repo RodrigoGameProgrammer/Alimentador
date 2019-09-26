@@ -118,29 +118,42 @@
               </button>
             </div>
   
-            <div class="modal-body">
-              <form action="" class="align-content-start">
-                <div class="form-group">
-                  <label for="selQuant2">Quantas porções?</label>
-                  <label type="text" id="selQuant2" class="form-control" ></label>
-                </div>
-                <div class="form-group">
-                  <label for="iptTime2">Primeiro horário:</label>
-                  <label type="text" id="iptTime2" class="form-control" ></label>
-                </div>
-                <div class="form-group">
-                  <label for="iptInterval2">Servir a cada:</label>
-                  <label type="text" id="iptInterval2" class="form-control" ></label>
-                </div>
-                <div class="form-group">
-                  <label for="iptPortion2">Quantidade de ração (em g):</label>
-                  <label type="text" id="iptPortion2" class="form-control" ></label>
-                </div>
-              </form>
-            </div>
+           <div class="modal-body">
+            <form action="" class="align-content-start">
+              <div class="form-group">
+                <label for="quantidadeP">Quantas porções?</label>
+                <select id="quantidadeP" required class="form-control" name="quantidadeP" value="">
+                  <option value="">--</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="horarioP">Primeiro horário:</label>
+                <input id="horarioP" required type="time" step="900" class="form-control" name="horarioP" value="" />
+              </div>
+              <div class="form-group">
+                <label for="horarioS">Servir a cada:</label>
+                <input id="horarioS" required type="time" step="900" class="form-control" name="horarioS" value=""  />
+              </div>
+              <div class="form-group">
+                <label for="quantidadeR">Quantidade de ração (em g):</label>
+                <input id="quantidadeR" required type="number" step="5" class="form-control" name="quantidadeR" min="10"
+                  max="125" value="" />
+              </div>
+            </form>
+          </div>
   
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mdlAgendamento" data-dismiss="modal">Editar</button>
+              <button type="button" class="btn btn-primary"  onclick="">Editar</button>
               <button type="button" class="btn btn-primary" onclick="deletarAgendamento()">Deletar</button>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             </div>
