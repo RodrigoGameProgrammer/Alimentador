@@ -41,4 +41,7 @@ input{
   margin: 0 auto;
 }
 
-select { width: 400px; text-align-last:center; }
+select { 
+	width: 400px; 
+	text-align-last:center;
+}
