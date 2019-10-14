@@ -1,47 +1,81 @@
-#bg-login{
-	background-image: url(../img/bg-login.jpg);
-	background-repeat: no-repeat;
-	position: fixed; /* posição fixa para que a possível rolagem da tela não revele espaços em branco */
-	width: 100%;
-	height: 100%;
-}
+/* -----------------------------------*/
+/* ---->>> PLANOS DE FUNDO <<<-----*/
+/* -----------------------------------*/
 
-.h-bg-login{
-	min-height: 900px;
-	display: flex;
-	justify-content: center;
-	align-items: center; /** ISSO AQUI ALINHA VERTICALMENTE */
-}
-
-input{
-	text-align: center;
-}
-
-.bg2 {
+.bg-index{
   /* The image used */
-  background-image: url("https://wallpapermemory.com/uploads/329/dog-wallpaper-4k-308694.jpg");
+  background: url("https://wallpapermemory.com/uploads/329/dog-wallpaper-4k-308694.jpg") center no-repeat;
   /*https://wallpaperxyz.com/wp-content/uploads/Full-HD-1080p-Wallpapers-Desktop-Backgrounds-HD-Wallpaperxyz-dot-Com-3.jpg*/
 
   /* Full height */
   height: 100vh;
 
   /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
 }
 
+/* -----------------------------*/
+/* ----->>> CENTRALIZAR <<<-----*/
+/* -----------------------------*/
 
-.margin-tb-20{
-	margin-top: 20%;
-	margin-bottom: 20%;
-}
-
-.center-me {
+.center{
   margin: 0 auto;
 }
 
-select { 
-	width: 400px; 
+.center-text { 
 	text-align-last:center;
 }
+
+/* -----------------------------------*/
+/* ---------->>> BOTÕES <<<-----------*/
+/* -----------------------------------*/
+
+/*Coloca uma margem top e bottom nos botões para centralizar na vertical*/
+.margin-tb-20{
+	margin: 20% auto 20%;
+}
+
+.btn-index{
+  background-color: #4FE8B8;
+}
+
+.btn-index:hover{
+  background-color: #64FFFB;
+}
+
+.btn:focus{
+  box-shadow: 0 0 0 0;
+}
+
+
+/* -----------------------------------*/
+/* ------>>> INPUTS E SELECT <<<------*/
+/* -----------------------------------*/
+
+/*Estilo Input e Select*/
+.input:focus{
+  border: 2px solid rgb(239,132,60);
+  box-shadow: 0 0 0 0;
+}
+
+.select:focus{
+  border: 2px solid rgb(239,132,60);
+  box-shadow: 0 0 0 0;
+}
+
+/* -----------------------------------*/
+/* ----------->>> MODAL <<<-----------*/
+/* -----------------------------------*/
+
+.bg-modal{
+  background-color:#4FE8B8;  
+}
+
+.label-modal{
+  color: #000;
+}
+
+/* -----------------------------------*/
+/* --------->>> ANIMAÇÕES <<<---------*/
+/* -----------------------------------*/
+

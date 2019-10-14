@@ -6,7 +6,7 @@
   <!--Icone da barra
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">-->
-
+  <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>-->
   <!--=========================================BOOTSTRAP==================================================-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,33 +17,37 @@
   <title>Alimentador</title>
 </head>
 
-<body class="bg2" style="background-color: pink">
+<body class="bg-index" style="background-color: pink">
 
   <div class="container-fluid" style="border:red 1px solid">
 
-    <div class="row w-75 center-me">
+    <div class="row w-75 center">
       <h1 id="user_id" class="col-form-label">Email</h1>
     </div>
 
     <!----MENU---->
 
-    <div class="row w-75 center-me" style="border:blue 1px solid; ">
+    <div class="row w-75 center" style="border:blue 1px solid; ">
 
       <div class="col-sm margin-tb-20" align="center" style="border:red 1px solid;">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mdlAgendamento">
+        <button type="button" class="btn btn-index" data-toggle="modal" data-target="#mdlAgendamento">
+          <!--<button type="button" class="btn btn-laranja btn-block" data-toggle="modal" data-target="#mdlAgendamento"> modelo 2-->
+          <img src="./img/icons/icon-food.png" alt="..." class="">
           Agendamento
         </button>
       </div>
 
       <div class="col-sm margin-tb-20" align="center" style="border:red 1px solid;">
-        <button type="button" class="btn btn-primary" onclick="verAgendamento()" data-toggle="modal"
+        <button type="button" class="btn btn-index" onclick="verAgendamento()" data-toggle="modal"
           data-target="#mdlVerAgendamento">
+          <img src="./img/icons/icon-agenda.png" alt="..." class="">
           Horário Agendado
         </button>
       </div>
 
       <div class="col-sm margin-tb-20" align="center" style="border:red 1px solid;">
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-index">
+          <img src="./img/icons/icon-file.png" alt="..." class="">
           Logs
         </button>
       </div>
@@ -54,9 +58,9 @@
 
     <div class="modal fade" id="mdlAgendamento">
       <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Agendamento</h4>
+        <div class="modal-content bg-modal">
+          <div class="modal-header ">
+            <h4 class="modal-title label-modal">Agendamento</h4>
             <button type="button" class="close" data-dismiss="modal">
               &times;
             </button>
@@ -67,8 +71,8 @@
               <div class="form-group">
 
                 <!--Quantas Porções-->
-                <label for="selQuant">Quantas porções?</label>
-                <select id="qtdPorc" required class="form-control" name="selQuant">
+                <label for="selQuant" class="label-modal">Quantas porções?</label>
+                <select id="qtdPorc" required class="form-control center-text select" name="selQuant">
                   <option value="">--</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -85,21 +89,23 @@
 
               <!--Primeiro Horário-->
               <div class="form-group">
-                <label for="iptTime">Primeiro horário:</label>
-                <input id="horario" required type="time" step="900" class="form-control" name="iptTime" />
+                <label for="iptTime" class="label-modal">Primeiro horário:</label>
+                <input id="horario" required type="time" step="900" class="form-control center-text input"
+                  name="iptTime" />
               </div>
 
               <!--Intervalo-->
               <div class="form-group">
-                <label for="iptInterval">Servir a cada:</label>
-                <input id="servHorario" required type="time" step="900" class="form-control" name="iptInterval" />
+                <label for="iptInterval" class="label-modal">Servir a cada:</label>
+                <input id="servHorario" required type="time" step="900" class="form-control center-text input"
+                  name="iptInterval" />
               </div>
 
               <!--Quantidade de Porção-->
               <div class="form-group">
-                <label for="iptPortion">Quantidade de ração (em g):</label>
-                <input id="qtdRacao" required type="number" step="5" class="form-control" name="iptPortion" min="10"
-                  max="125" />
+                <label for="iptPortion" class="label-modal">Quantidade de ração (em g):</label>
+                <input id="qtdRacao" required type="number" step="5" class="form-control center-text input"
+                  name="iptPortion" min="10" max="125" />
               </div>
 
             </form>
@@ -122,7 +128,7 @@
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Horário Agendado</h4>
+            <h4 class="modal-title label-modal">Horário Agendado</h4>
             <button type="button" class="close" data-dismiss="modal">
               &times;
             </button>
@@ -133,8 +139,9 @@
               <div class="form-group">
 
                 <!--Quantas Porções-->
-                <label for="quantidadeP">Quantas porções?</label>
-                <select id="quantidadeP" required class="form-control" name="quantidadeP" value="" disabled>
+                <label for="quantidadeP" class="label-modal">Quantas porções?</label>
+                <select id="quantidadeP" required class="form-control center-text select" name="quantidadeP" value=""
+                  disabled>
                   <option value="">--</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -151,23 +158,23 @@
 
               <!--Primeiro Horário-->
               <div class="form-group">
-                <label for="horarioP">Primeiro horário:</label>
-                <input id="horarioP" required type="time" step="900" class="form-control" name="horarioP" value=""
-                  disabled />
+                <label for="horarioP" class="label-modal">Primeiro horário:</label>
+                <input id="horarioP" required type="time" step="900" class="form-control center-text input"
+                  name="horarioP" value="" disabled />
               </div>
 
               <!--Intervalo-->
               <div class="form-group">
-                <label for="horarioS">Servir a cada:</label>
-                <input id="horarioS" required type="time" step="900" class="form-control" name="horarioS" value=""
-                  disabled />
+                <label for="horarioS" class="label-modal">Servir a cada:</label>
+                <input id="horarioS" required type="time" step="900" class="form-control center-text input"
+                  name="horarioS" value="" disabled />
               </div>
 
               <!--Quantidade de Porção-->
               <div class="form-group">
-                <label for="quantidadeR">Quantidade de ração (em g):</label>
-                <input id="quantidadeR" required type="number" step="5" class="form-control" name="quantidadeR" min="10"
-                  max="125" value="" disabled />
+                <label for="quantidadeR" class="label-modal">Quantidade de ração (em g):</label>
+                <input id="quantidadeR" required type="number" step="5" class="form-control center-text input"
+                  name="quantidadeR" min="10" max="125" value="" disabled />
               </div>
 
             </form>
@@ -185,7 +192,7 @@
     </div>
 
     <!----BOTOES INFERIORES---->
-    <div class="row w-75 center-me" style="border:black 1px solid">
+    <div class="row w-75 center" style="border:black 1px solid">
       <div class="col-sm" align="center">
         <button type="button" class="btn btn-danger btn-lg w-25" onclick="logout()">Sair</button>
       </div>
