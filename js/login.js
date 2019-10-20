@@ -6,7 +6,7 @@ function login() {
 
 	var userEmail = document.getElementById("email_field").value;
 	var userPassword = document.getElementById("password_field").value;
-
+	
 	firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).then(function () {
 		window.location.href = "index.html";
 

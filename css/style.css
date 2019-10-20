@@ -14,6 +14,11 @@
   background-size: cover;
 }
 
+.bg-login{
+  background-size: 613px 472px;
+  background-color:#59A5FF;  
+}
+
 /* -----------------------------*/
 /* ----->>> CENTRALIZAR <<<-----*/
 /* -----------------------------*/
@@ -35,18 +40,36 @@
 	margin: 20% auto 20%;
 }
 
-.btn-index{
-  background-color: #4FE8B8;
+.btn-padrao{
+  width: 250px;
+  height: 50px;
+  background-color: #ABADFF;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-weight: bold;
+
 }
 
-.btn-index:hover{
-  background-color: #64FFFB;
+.btn-danger{
+  background-color: #FF584D;
+}
+
+.btn-danger:hover{
+  background-color: #FF1000;
+}
+
+.btn-padrao2{
+  background-color: #ABADFF;
+}
+
+.btn-padrao:hover, .btn-padrao2:hover{
+  background-color: #C0FFCE;
+
 }
 
 .btn:focus{
   box-shadow: 0 0 0 0;
 }
-
 
 /* -----------------------------------*/
 /* ------>>> INPUTS E SELECT <<<------*/
@@ -54,12 +77,12 @@
 
 /*Estilo Input e Select*/
 .input:focus{
-  border: 2px solid rgb(239,132,60);
+  border: 2px solid #BF77FE;
   box-shadow: 0 0 0 0;
 }
 
 .select:focus{
-  border: 2px solid rgb(239,132,60);
+  border: 2px solid #BF77FE;
   box-shadow: 0 0 0 0;
 }
 
@@ -68,11 +91,15 @@
 /* -----------------------------------*/
 
 .bg-modal{
-  background-color:#4FE8B8;  
+  background-color:#59A5FF;  
 }
 
 .label-modal{
   color: #000;
+}
+
+.mdlAgendamento{
+  background-color: #A6CEFF;
 }
 
 /* -----------------------------------*/
@@ -127,57 +154,64 @@ body{
 /* >>> ANIMAÇÕES BACKGROUND LOGIN <<<*/
 /* ----------------------------------*/
 
-/* Background Animado dog-paw esquerda */
-
 .bg-animation li{
-   width: 32px;
-   height: 32px;
-   background: url(../img/icons/dog-paw.png) no-repeat;
-   display: block;
-   position: absolute;
-   animation: bg-animation-login 7s linear infinite; 
+  width: 32px;
+  height: 32px;
+  background-image: url(../img/icons/icon-osso.png);
+  background-repeat: no-repeat;
+  display: block;
+  position: absolute;
+  bottom: -40;
+  animation: bg-animation-login 7s linear infinite;
 }
 
 @keyframes bg-animation-login {
-  0% {
-    opacity: 0;
-    transform: translateY(100vh);
+ from {
+   opacity: 0;
+   transform: translateY(0);
+ }
+ 50%{
+   opacity: 1;
+ }
+ to {
+   opacity: 0;
+   transform: translateY(90vh) rotate(960deg);
   }
-  10%, 30%, 50%, 70%, 90%{ 
-    opacity: 1;
-  }
-  20%, 40%, 60%, 80%{
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(0);
-   }
 }
 
-/* Background Animado dog-paw direita */
-.bg-animation2 li + li{
-  width: 32px;
-  height: 32px;
-  background: url(../img/icons/dog-paw.png) no-repeat;
+.dog{
+  bottom: 0vh;
   display: block;
   position: absolute;
-  animation: bg-animation-login2 7s linear infinite; 
+  animation: dog-animation 10s linear infinite;
+  
 }
 
-@keyframes bg-animation-login2 {
-  0%{
+@keyframes dog-animation {
+  from {
     opacity: 0;
-    transform: translateY(100vh);
+    transform: translateX(0);
+     
   }
-  10%, 30%, 50%, 70%, 90%{
-    opacity: 0;
-  }
-  20%, 40%, 60%, 80%{
+  50%{
     opacity: 1;
   }
-  100%{
+  to {
     opacity: 0;
-    transform: translateY(0);
+    transform: translateX(100vw);
    }
-}
+ }
+
+ @keyframes dog-animation2 {
+  from {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+  50%{
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(0);
+   }
+ }

@@ -1,21 +1,22 @@
+const bg_animation = document.querySelector("ul.bg-animation");
 
-//Pegando o element ul com a classe CSS de animação
-const dog_paw_left = document.querySelector("ul.bg-animation");
-const dog_paw_right = document.querySelector("ul.bg-animation2");
+for (let i = 0; i < 8; i++) {
 
+    const bg_li = document.createElement("li");
 
-//Criando as listas
-var li = [document.createElement("li"), document.createElement("li")];
+    const random = (min,max) => Math.random() * (max - min) + min;
+        
+    const position = random(1, 99);
+    const delay = random(5, 0.1);
+    const duration = random(5,10);
 
-drawImg();
+    bg_li.style.animationFillMode = "backwards";
 
-function drawImg() {
+    bg_li.style.left = `${position}%`;
 
-    //Posição dog-paw da direita
-    li[1].style.left = "80px";
-    li[1].style.top = "-8px";
+    bg_li.style.animationDelay = `${delay}s`;
+    bg_li.style.animationDuration = `${duration}s`
 
-    //Inserindo as li dentro da ul
-    dog_paw_left.appendChild(li[0]);
-    dog_paw_right.appendChild(li[1]);
+    bg_animation.appendChild(bg_li);
+    
 }

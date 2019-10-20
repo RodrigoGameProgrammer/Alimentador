@@ -1,17 +1,34 @@
 
-//----VERIFICAR O ESTADO DA SESSÃO----//
+/* --------------------------------------*/
+/* ->>> VERIFICAR O ESTADO DA SESSÃO <<<-*/
+/* --------------------------------------*/
 
 var uid = null;
 var btn_salvar = null;
 
+//Variaveis globais 
+var verif_qtdPorc = null;
+var verif_horario = null;
+var verif_servHorario = null;
+var verif_qtdRacao = null;
+
+//Variaveis modal agendamento
+var input_qtdPorc = document.getElementById("qtdPorc");
+var input_qtdRacao = document.getElementById("qtdRacao");
+var input_horario = document.getElementById("horario");
+var input_servHorario = document.getElementById("servHorario");
+
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
-		// User is signed in.
+		// Usuário Logado
 		uid = user.uid;
 		var user = firebase.auth().currentUser;
 		var email_id = user.email;
-		document.getElementById("user_id").innerHTML = "Bem-Vindo: " + user.email;
+		document.getElementById("user_id").innerHTML = "Bem-Vindo: " + email_id;
 		document.getElementById("user_id").style.color = "white";
+
+		verificarUsuario()
+
 		console.log(user);
 	} else {
 		uid = null;
@@ -20,70 +37,164 @@ firebase.auth().onAuthStateChanged(function (user) {
 	}
 });
 
+function verificarUsuario() {
+	// Verificar se o usuário é novo ou existente
+	firebase.database().ref('users/' + uid).on('value', (snap) => {
 
-//----CONTROLAR O BANCO DE DADOS----//
+		//Puxando os dados do banco
+		verif_qtdPorc = snap.child("qtdPorcao").val();
+		verif_qtdRacao = snap.child("qtdRacao").val();
+		verif_horario = snap.child("horario").val();
+		verif_servHorario = snap.child("servHorario").val();
 
-//Cria um novo agendamento no banco
-function agendar() {
+		//Se os campos no banco forem vazios(null) significa que o usuário é novo, chamando o modal do primeiro agendamento
+		if (verif_qtdPorc == null && verif_qtdRacao == null && verif_horario == null && verif_servHorario == null) {
+			console.log("usuario novo");
+			$("#mdlAgendamento").modal();
+		} else {
+			console.log("usuario existente");
+		}
+	});
+}
 
-	//Variaveis 
-	var var_qtdPorc = null;
-	var var_horario = null;
-	var var_servHorario = null;
-	var var_qtdRacao = null;
+function validarDados() {
 
 	//Atribuindo valores as variaves e convertendo para inteiro e string
-	var_qtdPorc = parseInt(document.getElementById("qtdPorc").value);
-	var_qtdRacao = parseInt(document.getElementById("qtdRacao").value);
-	var_horario = document.getElementById("horario").value.toString();
-	var_servHorario = document.getElementById("servHorario").value.toString();
+	verif_qtdPorc = parseInt(input_qtdPorc.value);
+	verif_qtdRacao = parseInt(input_qtdRacao.value);
+	verif_horario = input_horario.value.toString();
+	verif_servHorario = input_servHorario.value.toString();
 
-	//Mostrar no Log 
-	console.log(var_qtdPorc);
-	console.log(var_qtdRacao);
-	console.log(var_horario);
-	console.log(var_servHorario);
+	if (isNaN(verif_qtdPorc) || isNaN(verif_qtdRacao) || verif_horario == "" || verif_servHorario == "") {
+		alert("Preencher campo");
+		if (isNaN(verif_qtdPorc)) {
+
+			//Deixa a borda vermelha
+			input_qtdPorc.style.border = "2px solid #FF1000";
+
+			//Quando focado deixa a borda cor padrão focus
+			input_qtdPorc.addEventListener('focus', (event) => {
+				event.target.style.border = "2px solid #BF77FE";
+			}, true);
+
+			//Desfocado tira a borda padrão e deixa normal
+			input_qtdPorc.addEventListener('blur', (event) => {
+				event.target.style.border = 'none';
+			}, true);
+
+		} else if (verif_horario == "") {
+
+			//Deixa a borda vermelha
+			input_horario.style.border = "2px solid #FF1000";
+
+			//Quando focado deixa a borda cor padrão focus
+			input_horario.addEventListener('focus', (event) => {
+				event.target.style.border = "2px solid #BF77FE";
+			}, true);
+
+			//Desfocado tira a borda padrão e deixa normal
+			input_horario.addEventListener('blur', (event) => {
+				event.target.style.border = 'none';
+			}, true);
+
+		} else if (verif_servHorario == "") {
+
+			//Deixa a borda vermelha
+			input_servHorario.style.border = "2px solid #FF1000";
+
+			//Quando focado deixa a borda cor padrão focus
+			input_servHorario.addEventListener('focus', (event) => {
+				event.target.style.border = "2px solid #BF77FE";
+			}, true);
+
+			//Desfocado tira a borda padrão e deixa normal
+			input_servHorario.addEventListener('blur', (event) => {
+				event.target.style.border = 'none';
+			}, true);
+
+		} else if (isNaN(verif_qtdRacao)) {
+
+			//Deixa a borda vermelha
+			input_qtdRacao.style.border = "2px solid #FF1000";
+
+			//Quando focado deixa a borda cor padrão focus
+			input_qtdRacao.addEventListener('focus', (event) => {
+				event.target.style.border = "2px solid #BF77FE";
+			}, true);
+
+			//Desfocado tira a borda padrão e deixa normal
+			input_qtdRacao.addEventListener('blur', (event) => {
+				event.target.style.border = 'none';
+			}, true);
+
+		}
+	} else {
+		agendar();
+	}
+}
+/* ----------------------------------*/
+/* ->>> CONTROLAR BANCO DE DADOS <<<-*/
+/* ----------------------------------*/
+
+/* ----------------------------------*/
+/* ->>> CRIAR AGENDAMENTO<<<-*/
+/* ----------------------------------*/
+
+function agendar() {
+
+	console.log(verif_qtdPorc);
+	console.log(verif_qtdRacao);
+	console.log(verif_horario);
+	console.log(verif_servHorario);
 
 	//Colocando os dados das variveis no banco
 	firebase.database().ref('users/' + uid).set({
-		qtdPorcao: var_qtdPorc,
-		qtdRacao: var_qtdRacao,
-		horario: var_horario,
-		servHorario: var_servHorario,
+		qtdPorcao: verif_qtdPorc,
+		qtdRacao: verif_qtdRacao,
+		horario: verif_horario,
+		servHorario: verif_servHorario,
 	}, function (error) {
 		if (error) {
 			// The write failed...
+			alert("campos vazios");
 		} else {
 			// Data saved successfully!
 		}
 	});
 }
 
-//Função para ver os agendamentos existentes
+/* -------------------------*/
+/* ->>> VER AGENDAMENTO <<<-*/
+/* -------------------------*/
 function verAgendamento() {
 
 	firebase.database().ref('users/' + uid).on('value', (snap) => {
 
-		//Declarando as variaveis e puxando os dados do banco
-		var var_qtdPorc2 = snap.child("qtdPorcao").val();
-		var var_qtdRacao2 = snap.child("qtdRacao").val();
-		var var_horario2 = snap.child("horario").val();
-		var var_servHorario2 = snap.child("servHorario").val();
+		//Puxando os dados do banco
+		verif_qtdPorc = snap.child("qtdPorcao").val();
+		verif_qtdRacao = snap.child("qtdRacao").val();
+		verif_horario = snap.child("horario").val();
+		verif_servHorario = snap.child("servHorario").val();
 
 		//Mostrar no Log 
 		console.log(snap.val());
-		console.log(var_qtdPorc2);
-		console.log(var_qtdRacao2);
-		console.log(var_horario2);
-		console.log(var_servHorario2);
+		console.log(verif_qtdPorc);
+		console.log(verif_qtdRacao);
+		console.log(verif_horario);
+		console.log(verif_servHorario);
 
 		//Trocando os valores dos campos input no HTML
-		document.getElementById("quantidadeP").value = var_qtdPorc2;
-		document.getElementById("horarioP").value = var_horario2;
-		document.getElementById("horarioS").value = var_servHorario2;
-		document.getElementById("quantidadeR").value = var_qtdRacao2;
+		document.getElementById("quantidadeP").value = verif_qtdPorc;
+		document.getElementById("horarioP").value = verif_horario;
+		document.getElementById("horarioS").value = verif_servHorario;
+		document.getElementById("quantidadeR").value = verif_qtdRacao;
 	});
 }
+
+
+/* --------------------------------*/
+/* ->>> ATUALIZAR AGENDAMENTO  <<<-*/
+/* --------------------------------*/
 
 //Primeira vez que clicar no botão editar dentro do Modal
 function editar() {
@@ -105,10 +216,8 @@ function editar() {
 		document.getElementById("btn_editar").setAttribute('onclick', 'atualizar()');
 
 	} else {
-
 		console.log("error 404, btn_salvar não funciona");
 		return;
-
 	}
 
 }
@@ -117,20 +226,20 @@ function editar() {
 function atualizar() {
 
 	//Declarando e atribuindo valores as variaves e convertendo para inteiro e string
-	var var_qtdPorc3 = parseInt(document.getElementById("quantidadeP").value);
-	var var_qtdRacao3 = parseInt(document.getElementById("quantidadeR").value);
-	var var_horario3 = document.getElementById("horarioP").value.toString();
-	var var_servHorario3 = document.getElementById("horarioS").value.toString();
+	verif_qtdPorc = parseInt(document.getElementById("quantidadeP").value);
+	verif_qtdRacao = parseInt(document.getElementById("quantidadeR").value);
+	verif_horario = document.getElementById("horarioP").value.toString();
+	verif_servHorario = document.getElementById("horarioS").value.toString();
 
 	//Função update do Firebase
 	firebase.database().ref('users/' + uid).update({
-		qtdPorcao: var_qtdPorc3,
-		qtdRacao: var_qtdRacao3,
-		horario: var_horario3,
-		servHorario: var_servHorario3,
+		qtdPorcao: verif_qtdPorc,
+		qtdRacao: verif_qtdRacao,
+		horario: verif_horario,
+		servHorario: verif_servHorario,
 	}, function (error) {
 		if (error) {
-			// The write failed...
+			alert("Campos Vazios");
 		} else {
 			// Data saved successfully!
 		}
@@ -158,16 +267,11 @@ function atualizar() {
 	}
 }
 
-//Deleta o agendamento
+/* -----------------------------*/
+/* ->>> DELETAR AGENDAMENTO <<<-*/
+/* -----------------------------*/
+
 function deletarAgendamento() {
 	firebase.database().ref('users/' + uid).remove();
 }
 
-//Com passagem de parametro
-/*function writeUserData(userId, name, email, imageUrl) {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email,
-    profile_picture : imageUrl
-  });
-}*/
