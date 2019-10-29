@@ -1,13 +1,14 @@
 
 //----LOGIN----//
+var divAlertLogin = document.getElementById("alertLogin");
+var userEmail = document.getElementById("email_field");
+var userPassword = document.getElementById("password_field");
+var btnCriarConta = document.getElementById("btnCriarConta");
 
 //Email e Senha
 function login() {
 
-	var userEmail = document.getElementById("email_field").value;
-	var userPassword = document.getElementById("password_field").value;
-	
-	firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).then(function () {
+	firebase.auth().signInWithEmailAndPassword(userEmail.value, userPassword.value).then(function () {
 		window.location.href = "index.html";
 
 	}).catch(function (error) {
@@ -15,7 +16,7 @@ function login() {
 		// var errorCode = error.code;
 		// var errorMessage = error.message;
 		// window.alert("Error: " + errorMessage);
-		alert();
+		alertLogin();
 		removeAlert();
 
 	});
@@ -38,24 +39,23 @@ function logout() {
 
 //----CONTROLAR ALERTAS----//
 
-function alert(){
-	document.getElementById("alertLogin").style.display="block";
-
+function alertLogin(){
+	divAlertLogin.style.display="block";
 }
 
 function removeAlert(){
 
-	email_field.addEventListener('focus', (event) => {
-		document.getElementById("alertLogin").style.display="none";
+	userEmail.addEventListener('focus', (event) => {
+		divAlertLogin.style.display="none";
 	}, true);
 	
 
-	password_field.addEventListener('focus', (event) => {
-		document.getElementById("alertLogin").style.display="none";
+	userPassword.addEventListener('focus', (event) => {
+		divAlertLoginn.style.display="none";
 	}, true);
 
-	btnCriarConta.addEventListener('focus', (event) => {
-		document.getElementById("alertLogin").style.display="none";
+	btnCriarConta.addEventListener('click', (event) => {
+		divAlertLogin.style.display="none";
 		$("#criarConta").modal();
 	}, true);
 
