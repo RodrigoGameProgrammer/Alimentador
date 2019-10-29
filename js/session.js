@@ -18,6 +18,8 @@ var input_qtdRacao = document.getElementById("qtdRacao");
 var input_horario = document.getElementById("horario");
 var input_servHorario = document.getElementById("servHorario");
 
+var msgModalAgendamento = document.getElementById("msgModal");
+
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		// Usuário Logado
@@ -158,6 +160,7 @@ function agendar() {
 			// The write failed...
 			alert("campos vazios");
 		} else {
+			$('#mdlAgendamento').modal('toggle');
 			// Data saved successfully!
 		}
 	});
@@ -273,5 +276,7 @@ function atualizar() {
 
 function deletarAgendamento() {
 	firebase.database().ref('users/' + uid).remove();
+	$('#mdlVerAgendamento').modal('toggle');
+	msgModalAgendamento.innerHTML = "<center>Agendar</center>";
 }
 
