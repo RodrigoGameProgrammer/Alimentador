@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF=8">
 
 	<!--=========================================BOOTSTRAP==================================================-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 	<!--===========================================CSS======================================================-->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	<title>Alimentador Login</title>
 </head>
+
 <body class="bg-login">
 	<ul class="bg-animation"></ul>
-	<a class="dog" href="https://www.animatedimages.org/cat-dogs-202.htm"><img src="https://www.animatedimages.org/data/media/202/animated-dog-image-0175.gif" border="0" alt="animated-dog-image-0175" /></a>
+	<a class="dog" href="https://www.animatedimages.org/cat-dogs-202.htm"><img
+			src="https://www.animatedimages.org/data/media/202/animated-dog-image-0175.gif" border="0"
+			alt="animated-dog-image-0175" /></a>
 	<div class="container-fluid d-flex justify-content-center">
 		<div class="row w-75">
-			<div class="col-sm margin-tb-20"  align="center">
+			<div class="col-sm margin-tb-20" align="center">
+				<div id="alertLogin" class="alert alert-danger alert-animation" role="alert">
+					Usuário ou senha incorretos
+				</div>
 				<form class="w-75">
+
 					<div class="form-group">
-						<input type="email" class="form-control form-control-lg input-animation center-text w-50 input" id="email_field" aria-describedby="emailHelp" placeholder="Email">
+						<input id="email_field" type="email"
+							class="form-control form-control-lg input-animation center-text w-50 input"
+							aria-describedby="emailHelp" placeholder="Email">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control form-control-lg input-animation center-text w-50 input" id="password_field" placeholder="Senha">
+						<input id="password_field" type="password"
+							class="form-control form-control-lg input-animation center-text w-50 input"
+							placeholder="Senha">
 					</div>
 					<!--<div class="form-group form-check">
 						<input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -32,7 +45,8 @@
 						<button type="button" class="btn btn-padrao" onclick="login()">Entrar</button>
 					</div><br>
 					<div>
-						<button type="button" class="btn btn-padrao" data-toggle="modal" data-target="#criarConta" data-whatever="cadastrar">Criar Conta</button>
+						<button id="btnCriarConta" type="button" class="btn btn-padrao" data-target="#criarConta"
+							data-whatever="cadastrar" onfocus="removeAlert()">Criar Conta</button>
 					</div>
 				</form>
 			</div>
@@ -41,7 +55,8 @@
 
 	<!--MODAL-->
 	<div>
-		<div class="modal fade" id="criarConta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="criarConta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
 			<div class="modal-dialog modal-sm" role="document">
 				<div class="modal-content bg-modal">
 					<div class="modal-header">
@@ -54,15 +69,18 @@
 						<form>
 
 							<div class="form-group">
-								<input type="email" class="form-control input input-animation" id="email_cadastro" placeholder="Seu Email">
+								<input type="email" class="form-control input input-animation" id="email_cadastro"
+									placeholder="Seu Email">
 							</div>
 
 							<div class="form-group">
-								<input type="password" class="form-control input input-animation" id="senha_cadastro" placeholder="Senha" minlength="8" required>
+								<input type="password" class="form-control input input-animation" id="senha_cadastro"
+									placeholder="Senha" minlength="8" required>
 							</div>
 
 							<div class="form-group">
-								<input type="password" class="form-control input input-animation" id="confirmar_senha_cadastro" placeholder="Confirmar Senha" minlength="8" required>
+								<input type="password" class="form-control input input-animation"
+									id="confirmar_senha_cadastro" placeholder="Confirmar Senha" minlength="8" required>
 							</div>
 						</form>
 					</div>
@@ -75,18 +93,24 @@
 	</div>
 
 
-<!--=========================================BOOTSTRAP======================================================-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!--=========================================BOOTSTRAP======================================================-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 
 
-<!--=========================================FIREBASE========================================================-->
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+	<!--=========================================FIREBASE========================================================-->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
 
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+	<!-- TODO: Add SDKs for Firebase products that you want to use
 	https://firebase.google.com/docs/web/setup#config-web-app -->
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
@@ -98,4 +122,5 @@
 	<script src="js/cadastro.js"></script>
 	<script src="js/session.js"></script>
 </body>
+
 </html>

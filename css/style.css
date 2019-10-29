@@ -102,6 +102,30 @@
   background-color: #A6CEFF;
 }
 
+/* -----------------------------------------*/
+/* ------>>> ANIMAÇÕES/STYLE ALERT <<<------*/
+/* -----------------------------------------*/
+
+.alert{
+  display: none;
+  width: 30%;
+}
+@keyframes alert-animation{
+  from{
+    width: 0%;
+    opacity: 0;
+  }
+  to{
+    width: 30%;
+    opacity: 1;
+  }
+}
+
+.alert-animation{
+  animation: alert-animation 0.7s;
+  animation-fill-mode: backwards;
+}
+
 /* -----------------------------------*/
 /* ------>>> ANIMAÇÕES MODAL <<<------*/
 /* -----------------------------------*/
