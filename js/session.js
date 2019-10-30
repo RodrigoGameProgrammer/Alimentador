@@ -153,8 +153,8 @@ function agendar() {
 	firebase.database().ref('users/' + uid).set({
 		qtdPorcao: verif_qtdPorc,
 		qtdRacao: verif_qtdRacao,
-		horario: verif_horario,
-		servHorario: verif_servHorario,
+		horario: verif_horario + ":" + "00",
+		servHorario: verif_servHorario + ":" + "00",
 	}, function (error) {
 		if (error) {
 			// The write failed...
@@ -238,8 +238,8 @@ function atualizar() {
 	firebase.database().ref('users/' + uid).update({
 		qtdPorcao: verif_qtdPorc,
 		qtdRacao: verif_qtdRacao,
-		horario: verif_horario,
-		servHorario: verif_servHorario,
+		horario: verif_horario + ":" + "00",
+		servHorario: verif_servHorario + ":" + "00",
 	}, function (error) {
 		if (error) {
 			alert("Campos Vazios");
