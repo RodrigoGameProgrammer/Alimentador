@@ -69,10 +69,10 @@ function verificarUsuario() {
 /* -----------------------------------------------*/
 
 function checarPerfil(){
-	if(input_radio_filhote.checked == false){
+	if(input_radio_filhote.checked == true){
 		input_qtdPorc.value = "3";
 		input_qtdRacao.value = "150";
-	}else if(input_radio_adulto.checked == false){
+	}else if(input_radio_adulto.checked == true){
 		input_qtdPorc.value = "2";
 		input_qtdRacao.value = "100";
 	}else{
