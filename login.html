@@ -11,48 +11,74 @@
 	<!--===========================================CSS======================================================-->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
-	<title>Alimentador Login</title>
+	<title>EZFeeder Login</title>
 </head>
 
 <body class="bg-login">
+
+	<!--
+    /* -------------------------------------*/
+    /* ------------- ANIMAÇÃO --------------*/
+    /* -------------------------------------*/
+	-->
+
 	<ul class="bg-animation"></ul>
-	<a class="dog" href="https://www.animatedimages.org/cat-dogs-202.htm"><img
-			src="https://www.animatedimages.org/data/media/202/animated-dog-image-0175.gif" border="0"
-			alt="animated-dog-image-0175" /></a>
+	<a class="dog" href="https://www.animatedimages.org/cat-dogs-202.htm">
+		<img src="https://www.animatedimages.org/data/media/202/animated-dog-image-0175.gif" border="0"
+			alt="animated-dog-image-0175" />
+	</a>
+
+	<!--
+    /* -------------------------------------*/
+    /* --------------- LOGIN ---------------*/
+    /* -------------------------------------*/
+	-->
+
 	<div class="container-fluid d-flex justify-content-center">
 		<div class="row w-75">
 			<div class="col-sm margin-tb-20" align="center">
 				<form class="w-75">
-					<div id="alertLogin" class="alert alert-danger alert-animation" role="alert">
+
+					<!-- Mensagem de erro caso a validação não esteja correta -->
+					<div id="alertLogin" class="alert alert-danger fade-animation" role="alert">
 						Usuário ou senha incorretos
 					</div>
+
+					<!-- Campo email -->
 					<div class="form-group">
 						<input id="email_field" type="email"
 							class="form-control form-control-lg input-animation center-text w-50 input"
-							aria-describedby="emailHelp" placeholder="Email">
+							placeholder="Email">
 					</div>
+
+					<!-- Campo senha -->
 					<div class="form-group">
 						<input id="password_field" type="password"
 							class="form-control form-control-lg input-animation center-text w-50 input"
 							placeholder="Senha">
 					</div>
-					<!--<div class="form-group form-check">
-						<input type="checkbox" class="form-check-input" id="exampleCheck1">
-						<label class="form-check-label" for="exampleCheck1">Lembre-se de mim</label>
-					</div>-->
+
+					<!-- Botão Login -->
 					<div>
 						<button type="button" class="btn btn-padrao" onclick="login()">Entrar</button>
 					</div><br>
+
+					<!-- Botão criar conta -->
 					<div>
 						<button id="btnCriarConta" type="button" class="btn btn-padrao" data-target="#criarConta"
-							data-whatever="cadastrar" onfocus="removeAlert()">Criar Conta</button>
+							data-whatever="cadastrar" onclick="removeAlert()">Criar Conta</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 
-	<!--MODAL-->
+	<!--
+    /* --------------------------------------*/
+    /* ---------- MODAL CADASTRAR -----------*/
+    /* --------------------------------------*/
+	-->
+
 	<div>
 		<div class="modal fade" id="criarConta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 			aria-hidden="true">
@@ -64,29 +90,31 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
+
 					<div class="modal-body">
 						<form>
-								<div id="alertLogin2" class="alert alert-danger alert-animation" role="alert">
-										Usuário ou senha incorretos
-									</div>
+
+							<!-- Campo email -->
 							<div class="form-group">
 								<input id="email_cadastro" type="email" class="form-control input input-animation"
 									placeholder="Seu Email">
 							</div>
 
+							<!-- Campo senha -->
 							<div class="form-group">
 								<input id="senha_cadastro" type="password" class="form-control input input-animation"
-									placeholder="Senha" minlength="8" required>
+									placeholder="Senha">
 							</div>
 
+							<!-- Campo confirma senha -->
 							<div class="form-group">
 								<input id="confirmar_senha_cadastro" type="password"
-									class="form-control input input-animation" placeholder="Confirmar Senha"
-									minlength="8" required>
+									class="form-control input input-animation" placeholder="Confirmar Senha">
 							</div>
 						</form>
 					</div>
 					<div class="modal-footer">
+						<!-- Botão criar conta -->
 						<button type="button" class="center btn btn-padrao" onclick="cadastro()">Criar Conta</button>
 					</div>
 				</div>
@@ -118,11 +146,11 @@
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 
 	<!--=========================================JAVASCRIPT======================================================-->
-	<script src="js/animation.js"></script>
 	<script src="js/firebase.js"></script>
-	<script src="js/login.js"></script>
+	<script src="js/animation.js"></script>
 	<script src="js/cadastro.js"></script>
-	<script src="js/session.js"></script>
+	<script src="js/database.js"></script>
+	<script src="js/login.js"></script>
 </body>
 
 </html>
