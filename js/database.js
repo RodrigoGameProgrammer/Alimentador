@@ -6,11 +6,14 @@ var uid = null;
 
 //Variaveis globais 
 var verif_qtdPorcao = null;
-var verif_horario = null;
-var verif_servHorario = null;
 var verif_qtdRacao = null;
 
-//Variaveis modal agendamento
+var verif_horario = null;
+var verif_horario2= null;
+var verif_horario3 = null;
+
+
+//Variaveis que guardam elementos do HTML (modal agendamento)
 var input_qtdPorc = document.getElementById("qtdPorcao");
 var input_qtdRacao = document.getElementById("qtdRacao");
 
@@ -24,6 +27,8 @@ var label_horario3 = document.getElementById("label3");
 
 var input_radio_filhote = document.getElementById("inputFilhote");
 var input_radio_adulto = document.getElementById("inputAdulto");
+
+var divAlertAgendar = document.getElementById("alertAgendar");
 
 /* ---------------------------------------*/
 /* ---->>> VERIFICA USUÁRIO LOGADO <<<----*/
@@ -43,6 +48,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 		console.log(user);
 	} else {
 		uid = null;
+		//Descomentar a linha abaixo quando finalizar o projeto
 		//window.location.replace("login.html");
 		console.log(user);
 	}
@@ -58,11 +64,12 @@ function verificarUsuario() {
 	firebase.database().ref('users/' + uid).on('value', (snap) => {
 
 		//Puxando os dados do banco
-		verif_horario = snap.child("horario1").val();
-		verif_servHorario = snap.child("servHorario").val();
+		verif_horario = snap.child("horario").val();
+		verif_horario2 = snap.child("horario2").val();
+		verif_horario3 = snap.child("horario3").val();
 
 		//Se os campos no banco forem vazios(null) significa que o usuário é novo, chamando o modal do primeiro agendamento
-		if (verif_horario == null && verif_servHorario == null) {
+		if (verif_horario == null && verif_horario2 == null && verif_horario3 == null) {
 			console.log("usuario novo");
 			$("#mdlAgendamento").modal();
 		} else {
@@ -72,105 +79,58 @@ function verificarUsuario() {
 }
 
 /* -----------------------------------------------*/
-/* ---->>> VERIFICA USUÁRIO NOVO/EXISTENTE <<<----*/
+/* ------------>>> VALIDAR DADOS <<<--------------*/
 /* -----------------------------------------------*/
 
-function checarPerfil(){
-	if(input_radio_filhote.checked == true){
+//Verifica se um dos perfis está selecionado, se não estiver exibe uma mensagem e sinaliza os campos
+function checarPerfil() {
+	if (input_radio_filhote.checked == true) {
+
 		input_qtdPorc.value = "3";
 		input_qtdRacao.value = "150";
+		
 		input_horario3.style.display = "block";
 		label_horario3.style.display = "block";
-		
-	}else if(input_radio_adulto.checked == true){
+
+		input_qtdPorc.style.border = "none";
+		input_qtdRacao.style.border = "none";
+
+		divAlertAgendar.style.display = "none";
+
+	} else if (input_radio_adulto.checked == true) {
+
 		input_qtdPorc.value = "2";
 		input_qtdRacao.value = "100";
+
 		input_horario3.style.display = "none";
 		label_horario3.style.display = "none";
-		
-	}else{
+
+		input_qtdPorc.style.border = "none";
+		input_qtdRacao.style.border = "none";
+
+		divAlertAgendar.style.display = "none";
+
+	} else {
+
 		input_qtdPorc.value = null;
 		input_qtdRacao.value = null;
+
 		input_horario3.style.display = "none";
 		label_horario3.style.display = "none";
+
+		input_qtdPorc.style.border = "2px solid #FF1000";
+		input_qtdRacao.style.border = "2px solid #FF1000";
+
+		divAlertAgendar.style.display = "block";
 	}
 }
 
-// function validarDados() {
+function validarHorario() {
 
-// 	//Atribuindo valores as variaves e convertendo para inteiro e string
-// 	verif_qtdPorcao = parseInt(input_qtdPorc.value);
-// 	verif_qtdRacao = parseInt(input_qtdRacao.value);
-// 	verif_horario = input_horario.value.toString();
-// 	verif_servHorario = input_servHorario.value.toString();
 
-// 	if (isNaN(verif_qtdPorcao) || isNaN(verif_qtdRacao) || verif_horario == "" || verif_servHorario == "") {
-// 		alert("Preencher campo");
-// 		if (isNaN(verif_qtdPorcao)) {
 
-// 			//Deixa a borda vermelha
-// 			input_qtdPorc.style.border = "2px solid #FF1000";
+}
 
-// 			//Quando focado deixa a borda cor padrão focus
-// 			input_qtdPorc.addEventListener('focus', (event) => {
-// 				event.target.style.border = "2px solid #BF77FE";
-// 			}, true);
-
-// 			//Desfocado tira a borda padrão e deixa normal
-// 			input_qtdPorc.addEventListener('blur', (event) => {
-// 				event.target.style.border = 'none';
-// 			}, true);
-
-// 		} else if (verif_horario == "") {
-
-// 			//Deixa a borda vermelha
-// 			input_horario.style.border = "2px solid #FF1000";
-
-// 			//Quando focado deixa a borda cor padrão focus
-// 			input_horario.addEventListener('focus', (event) => {
-// 				event.target.style.border = "2px solid #BF77FE";
-// 			}, true);
-
-// 			//Desfocado tira a borda padrão e deixa normal
-// 			input_horario.addEventListener('blur', (event) => {
-// 				event.target.style.border = 'none';
-// 			}, true);
-
-// 		} else if (verif_servHorario == "") {
-
-// 			//Deixa a borda vermelha
-// 			input_servHorario.style.border = "2px solid #FF1000";
-
-// 			//Quando focado deixa a borda cor padrão focus
-// 			input_servHorario.addEventListener('focus', (event) => {
-// 				event.target.style.border = "2px solid #BF77FE";
-// 			}, true);
-
-// 			//Desfocado tira a borda padrão e deixa normal
-// 			input_servHorario.addEventListener('blur', (event) => {
-// 				event.target.style.border = 'none';
-// 			}, true);
-
-// 		} else if (isNaN(verif_qtdRacao)) {
-
-// 			//Deixa a borda vermelha
-// 			input_qtdRacao.style.border = "2px solid #FF1000";
-
-// 			//Quando focado deixa a borda cor padrão focus
-// 			input_qtdRacao.addEventListener('focus', (event) => {
-// 				event.target.style.border = "2px solid #BF77FE";
-// 			}, true);
-
-// 			//Desfocado tira a borda padrão e deixa normal
-// 			input_qtdRacao.addEventListener('blur', (event) => {
-// 				event.target.style.border = 'none';
-// 			}, true);
-
-// 		}
-// 	} else {
-// 		agendar();
-// 	}
-// }
 // /* ----------------------------------*/
 // /* ->>> CONTROLAR BANCO DE DADOS <<<-*/
 // /* ----------------------------------*/
@@ -180,7 +140,11 @@ function checarPerfil(){
 // /* ----------------------------------*/
 
 // function agendar() {
-
+	// verif_qtdPorcao = parseInt(input_qtdPorc.value);
+	// verif_qtdRacao = parseInt(input_qtdRacao.value);
+	// verif_horario1 = input_horario1.value.toString();
+	// verif_horario2 = input_horario2.value.toString();
+	// verif_horario3 = input_horario3.value.toString();
 // 	console.log(verif_qtdPorcao);
 // 	console.log(verif_qtdRacao);
 // 	console.log(verif_horario);
@@ -191,7 +155,7 @@ function checarPerfil(){
 // 		qtdPorcao: verif_qtdPorcao,
 // 		qtdRacao: verif_qtdRacao,
 // 		horario: verif_horario + ":" + "00",
-// 		servHorario: verif_servHorario + ":" + "00",
+// 		servHorario: verif_horario2+ ":" + "00",
 // 	}, function (error) {
 // 		if (error) {
 // 			// The write failed...
@@ -214,7 +178,7 @@ function checarPerfil(){
 // 		verif_qtdPorcao = snap.child("qtdPorcao").val();
 // 		verif_qtdRacao = snap.child("qtdRacao").val();
 // 		verif_horario = snap.child("horario").val();
-// 		verif_servHorario = snap.child("servHorario").val();
+// 		verif_horario2= snap.child("servHorario").val();
 
 // 		//Mostrar no Log 
 // 		console.log(snap.val());
@@ -269,14 +233,14 @@ function checarPerfil(){
 // 	verif_qtdPorcao = parseInt(document.getElementById("quantidadeP").value);
 // 	verif_qtdRacao = parseInt(document.getElementById("quantidadeR").value);
 // 	verif_horario = document.getElementById("horarioP").value.toString();
-// 	verif_servHorario = document.getElementById("horarioS").value.toString();
+// 	verif_horario2= document.getElementById("horarioS").value.toString();
 
 // 	//Função update do Firebase
 // 	firebase.database().ref('users/' + uid).update({
 // 		qtdPorcao: verif_qtdPorcao,
 // 		qtdRacao: verif_qtdRacao,
 // 		horario: verif_horario + ":" + "00",
-// 		servHorario: verif_servHorario + ":" + "00",
+// 		servHorario: verif_horario2+ ":" + "00",
 // 	}, function (error) {
 // 		if (error) {
 // 			alert("Campos Vazios");
@@ -284,7 +248,7 @@ function checarPerfil(){
 // 			// Data saved successfully!
 // 		}
 // 	});
-	
+
 // 	//Depois do update conferimos se o botão ainda é o salvar 
 // 	if (btn_salvar == true) {
 

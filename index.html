@@ -68,6 +68,11 @@
           <div class="modal-body">
             <form action="" class="align-content-start">
               <div class="form-group">
+                
+                  <div id="alertAgendar" class="alert alert-danger fade-animation w-100 center-text" role="alert">
+                     <h6>Selecione um perfil <br> (Filhote ou Adulto)</h6> 
+                    </div>
+
                 <div align=center>
                   <!-- Checkbox perfil filhote -->
                   <div class="form-check form-check-inline">
@@ -84,28 +89,28 @@
                   </div>
                 </div>
                 <!-- Quantidade de porções -->
-                <label id="label1" for="qtdPorcao" class="label-modal label-animation">Quantidade de Porção</label>
+                <label for="qtdPorcao" class="label-modal label-animation">Quantidade de Porção</label>
                 <input id="qtdPorcao" type="text" class="form-control center-text input input-animation"
                   name="iptQtdPorcao" disabled />
               </div>
 
               <!-- Primeiro Horário -->
               <div class="form-group">
-                <label for="horario1" class="label-modal label-animation">1º Horário</label>
+                <label id="label1" class="label-modal label-animation">1º Horário</label>
                 <input id="horario1" type="text"class="form-control center-text input input-animation timepicker"
                   name="iptHorario" />
               </div>
 
                <!-- Segundo Horário -->
               <div class="form-group">
-                <label id="label2" for="horario2" class="label-modal label-animation">2º Horário</label>
+                <label id="label2" class="label-modal label-animation">2º Horário</label>
                 <input id="horario2" type="text" class="form-control center-text input input-animation timepicker"
                   name="iptHorario2" />
               </div>
 
                 <!-- Terceiro Horário -->
                 <div class="form-group">
-                    <label id="label3" for="horario3" class="label-modal label-animation label-none">3º Horário</label>
+                    <label id="label3" class="label-modal label-animation label-none">3º Horário</label>
                     <input id="horario3" type="text" class="form-control center-text input input-animation input-none timepicker"
                       name="iptHorario3"/>
                   </div>
@@ -122,7 +127,7 @@
 
           <!--Botões Agendamento-->
           <div class="modal-footer">
-            <button type="button" class="btn center btn-padrao" onclick="validarDados()">Agendar</button>
+            <button type="button" class="btn center btn-padrao" onclick="validarHorario(); checarPerfil()">Agendar</button>
             <button type="button" class="btn btn-danger btn-padrao" onclick="logout()">Sair</button>
           </div>
         </div>
@@ -243,7 +248,7 @@
   <script src="js/timepicker.js"></script>
   <script src="js/animation.js"></script>
   <script src="js/database.js"></script>
-  <script src="js/login.js"></script>
+  <script src="js/logout.js"></script>
 </body>
 
 </html>
