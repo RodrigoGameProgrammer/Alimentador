@@ -13,8 +13,15 @@ var verif_qtdRacao = null;
 //Variaveis modal agendamento
 var input_qtdPorc = document.getElementById("qtdPorcao");
 var input_qtdRacao = document.getElementById("qtdRacao");
-var input_horario = document.getElementById("horario");
-var input_servHorario = document.getElementById("servHorario");
+
+var input_horario1 = document.getElementById("horario1");
+var input_horario2 = document.getElementById("horario2");
+var input_horario3 = document.getElementById("horario3");
+
+var label_horario1 = document.getElementById("label1");
+var label_horario2 = document.getElementById("label2");
+var label_horario3 = document.getElementById("label3");
+
 var input_radio_filhote = document.getElementById("inputFilhote");
 var input_radio_adulto = document.getElementById("inputAdulto");
 
@@ -51,7 +58,7 @@ function verificarUsuario() {
 	firebase.database().ref('users/' + uid).on('value', (snap) => {
 
 		//Puxando os dados do banco
-		verif_horario = snap.child("horario").val();
+		verif_horario = snap.child("horario1").val();
 		verif_servHorario = snap.child("servHorario").val();
 
 		//Se os campos no banco forem vazios(null) significa que o usuário é novo, chamando o modal do primeiro agendamento
@@ -72,12 +79,20 @@ function checarPerfil(){
 	if(input_radio_filhote.checked == true){
 		input_qtdPorc.value = "3";
 		input_qtdRacao.value = "150";
+		input_horario3.style.display = "block";
+		label_horario3.style.display = "block";
+		
 	}else if(input_radio_adulto.checked == true){
 		input_qtdPorc.value = "2";
 		input_qtdRacao.value = "100";
+		input_horario3.style.display = "none";
+		label_horario3.style.display = "none";
+		
 	}else{
 		input_qtdPorc.value = null;
 		input_qtdRacao.value = null;
+		input_horario3.style.display = "none";
+		label_horario3.style.display = "none";
 	}
 }
 

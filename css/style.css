@@ -75,7 +75,6 @@
 /* ------>>> INPUTS E SELECT <<<------*/
 /* -----------------------------------*/
 
-/*Estilo Input e Select*/
 .input:focus{
   border: 2px solid #BF77FE;
   box-shadow: 0 0 0 0;
@@ -89,6 +88,14 @@
 .input:disabled{
   background-color: #d3d3d3;
   cursor: not-allowed;
+}
+
+.label-none{
+  display: none;
+}
+
+.input-none{
+  display: none;
 }
 
 /* -----------------------------------*/
@@ -106,6 +113,21 @@
 .mdlAgendamento{
   background-color: #A6CEFF;
 }
+
+.ui-timepicker-container {
+  z-index: 3500 !important;
+}
+
+.ui-timepicker-standard{
+ background-color: #D1EDFF;
+}
+
+
+.ui-timepicker-standard .ui-state-hover {
+  background-color: #BFBCFE;
+ }
+ 
+
 
 /* -----------------------------------------*/
 /* ------>>> ANIMAÇÕES/STYLE ALERT <<<------*/

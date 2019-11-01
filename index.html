@@ -9,6 +9,8 @@
   <!--=========================================BOOTSTRAP==================================================-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!--=========================================TIMEPICKER==================================================-->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 
   <!--===========================================CSS======================================================-->
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -59,11 +61,8 @@
       <ul class="bg-animation"></ul>
       <div class="modal-dialog modal-sm">
         <div class="modal-content bg-modal">
-          <div class="modal-header">
-            <h5 id="msgModal" class="modal-title label-modal">
-              <center>Bem-Vindo!</center>
-              <font size="4">Faça seu agendamento</font>
-            </h5>
+          <div class="modal-header text-center">
+            <h5 id="msgModal" class="modal-title label-modal center">Bem-Vindo!<br> Faça seu agendamento</h5>
           </div>
 
           <div class="modal-body">
@@ -85,24 +84,31 @@
                   </div>
                 </div>
                 <!-- Quantidade de porções -->
-                <label for="qtdPorcao" class="label-modal label-animation">Quantidade de Porção</label>
+                <label id="label1" for="qtdPorcao" class="label-modal label-animation">Quantidade de Porção</label>
                 <input id="qtdPorcao" type="text" class="form-control center-text input input-animation"
                   name="iptQtdPorcao" disabled />
               </div>
 
               <!-- Primeiro Horário -->
               <div class="form-group">
-                <label for="horario" class="label-modal label-animation">Primeiro horário:</label>
-                <input id="horario" type="time" step="900" class="form-control center-text input input-animation"
-                  name="iptTime" />
+                <label for="horario1" class="label-modal label-animation">1º Horário</label>
+                <input id="horario1" type="text"class="form-control center-text input input-animation timepicker"
+                  name="iptHorario" />
               </div>
 
-              <!-- Intervalo -->
+               <!-- Segundo Horário -->
               <div class="form-group">
-                <label for="servHorario" class="label-modal label-animation">Servir a cada:</label>
-                <input id="servHorario" type="time" step="900" class="form-control center-text input input-animation"
-                  name="iptInterval" />
+                <label id="label2" for="horario2" class="label-modal label-animation">2º Horário</label>
+                <input id="horario2" type="text" class="form-control center-text input input-animation timepicker"
+                  name="iptHorario2" />
               </div>
+
+                <!-- Terceiro Horário -->
+                <div class="form-group">
+                    <label id="label3" for="horario3" class="label-modal label-animation label-none">3º Horário</label>
+                    <input id="horario3" type="text" class="form-control center-text input input-animation input-none timepicker"
+                      name="iptHorario3"/>
+                  </div>
 
               <!-- Quantidade de ração em gramas -->
               <div class="form-group">
@@ -218,6 +224,9 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
+  <!--=========================================TIMEPICKER======================================================-->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
   <!--=========================================FIREBASE========================================================-->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -231,6 +240,7 @@
 
   <!--=========================================JAVASCRIPT======================================================-->
   <script src="js/firebase.js"></script>
+  <script src="js/timepicker.js"></script>
   <script src="js/animation.js"></script>
   <script src="js/database.js"></script>
   <script src="js/login.js"></script>
