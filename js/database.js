@@ -127,8 +127,18 @@ function checarPerfil() {
 
 function validarHorario() {
 
+	if(input_horario1.value == input_horario2.value || input_horario1.value == input_horario3.value || input_horario2.value == input_horario3.value){
+		input_horario1.style.border = "2px solid #FF1000";
+		input_horario2.style.border = "2px solid #FF1000";
+		input_horario3.style.border = "2px solid #FF1000";
 
+		divAlertAgendar.innerHTML = "<center>Os horários devem ser diferentes</center>";
+		divAlertAgendar.style.display = "block";
 
+		
+	}else{
+		agendar();
+	}
 }
 
 // /* ----------------------------------*/
