@@ -59,6 +59,10 @@
 
     <div class="modal fade mdlAgendamento" id="mdlAgendamento" data-backdrop="static">
       <ul class="bg-animation"></ul>
+      <a class="dog" href="https://www.animatedimages.org/cat-dogs-202.htm">
+        <img src="https://www.animatedimages.org/data/media/202/animated-dog-image-0175.gif" border="0"
+          alt="animated-dog-image-0175" />
+      </a>
       <div class="modal-dialog modal-sm">
         <div class="modal-content bg-modal">
           <div class="modal-header text-center">
@@ -68,11 +72,15 @@
           <div class="modal-body">
             <form action="" class="align-content-start">
               <div class="form-group">
-                
-                  <div id="alertAgendar" class="alert alert-danger fade-animation w-100 center-text" role="alert">
-                     <h6>Selecione um perfil <br> (Filhote ou Adulto)</h6> 
-                    </div>
 
+                <div id="alertAgendar" class="alert alert-danger fade-animation w-100 center-text" role="alert">
+                  <h6>Selecione um perfil <br> (Filhote ou Adulto)</h6>
+                </div>
+                <div id="alertAgendar2" class="alert alert-danger fade-animation w-100 center-text" role="alert">
+                  <h6>
+                    <center>Os horários devem ser diferentes</center>
+                  </h6>
+                </div>
                 <div align=center>
                   <!-- Checkbox perfil filhote -->
                   <div class="form-check form-check-inline">
@@ -94,32 +102,32 @@
                   name="iptQtdPorcao" disabled />
               </div>
 
-              <!-- Primeiro Horário -->
+              <!-- 1º Horário -->
               <div class="form-group">
                 <label id="label1" class="label-modal label-animation">1º Horário</label>
-                <input id="horario1" type="text"class="form-control center-text input input-animation timepicker"
+                <input id="horario1" type="text" class="form-control center-text input input-animation timepicker"
                   name="iptHorario" />
               </div>
 
-               <!-- Segundo Horário -->
+              <!-- 2º Horário -->
               <div class="form-group">
                 <label id="label2" class="label-modal label-animation">2º Horário</label>
                 <input id="horario2" type="text" class="form-control center-text input input-animation timepicker"
                   name="iptHorario2" />
               </div>
 
-                <!-- Terceiro Horário -->
-                <div class="form-group">
-                    <label id="label3" class="label-modal label-animation label-none">3º Horário</label>
-                    <input id="horario3" type="text" class="form-control center-text input input-animation input-none timepicker"
-                      name="iptHorario3"/>
-                  </div>
+              <!-- 3º Horário -->
+              <div class="form-group">
+                <label id="label3" class="label-modal label-animation label-none">3º Horário</label>
+                <input id="horario3" type="text"
+                  class="form-control center-text input input-animation input-none timepicker" name="iptHorario3" />
+              </div>
 
               <!-- Quantidade de ração em gramas -->
               <div class="form-group">
                 <label for="qtdRacao" class="label-modal label-animation">Quantidade de ração (em g):</label>
                 <input id="qtdRacao" type="text" class="form-control center-text input input-animation"
-                  name="iptPortion" disabled />
+                  name="iptQtdRacao" disabled />
               </div>
 
             </form>
@@ -127,7 +135,8 @@
 
           <!--Botões Agendamento-->
           <div class="modal-footer">
-            <button type="button" class="btn center btn-padrao" onclick="checarPerfil();validarHorario()">Agendar</button>
+            <button type="button" class="btn center btn-padrao"
+              onclick="checarPerfil(); validarHorario()">Agendar</button>
             <button type="button" class="btn btn-danger btn-padrao" onclick="logout()">Sair</button>
           </div>
         </div>
@@ -155,45 +164,44 @@
             <form action="" class="align-content-start">
               <div class="form-group">
 
-                <!--Quantas Porções-->
-                <label for="quantidadeP" class="label-modal label-animation">Quantas porções?</label>
-                <select id="quantidadeP" required class="form-control center-text select input-animation"
-                  name="quantidadeP" value="" disabled>
-                  <option value="">--</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-              </div>
+                <!-- Quantidade de porções -->
+                <div class="form-group">
+                  <label id="verQtdPorcao" class="label-modal label-animation">Quantidade de Porção</label>
+                  <input id="verQtdPorcao" type="text" class="form-control center-text input input-animation timepicker"
+                    name="verIptQtdPorcao" />
+                </div>
 
-              <!--Primeiro Horário-->
-              <div class="form-group">
-                <label for="horarioP" class="label-modal label">Primeiro horário:</label>
-                <input id="horarioP" required type="time" step="900"
-                  class="form-control center-text input input-animation" name="horarioP" value="" disabled />
-              </div>
 
-              <!--Intervalo-->
-              <div class="form-group">
-                <label for="horarioS" class="label-modal label-animation">Servir a cada:</label>
-                <input id="horarioS" required type="time" step="900"
-                  class="form-control center-text input input-animation" name="horarioS" value="" disabled />
-              </div>
+                <!-- 1º Horário -->
 
-              <!--Quantidade de Porção-->
-              <div class="form-group">
-                <label for="quantidadeR" class="label-modal label-animation">Quantidade de ração (em g):</label>
-                <input id="quantidadeR" required type="number" step="5"
-                  class="form-control center-text input input-animation" name="quantidadeR" min="10" max="125" value=""
-                  disabled />
-              </div>
+                <div class="form-group">
+                  <label id="verHorario1" class="label-modal label-animation">1º Horário</label>
+                  <input id="verHorario1" type="text" class="form-control center-text input input-animation timepicker"
+                    name="verIptHorario1" />
+                </div>
+
+                <!-- 2º Horário -->
+
+                <div class="form-group">
+                  <label id="verHorario2" class="label-modal label-animation">2º Horário</label>
+                  <input id="verHorario2" type="text" class="form-control center-text input input-animation timepicker"
+                    name="verIptHorario2" />
+                </div>
+                
+                <!-- 3º Horário -->
+
+                <div class="form-group">
+                  <label id="verHorario3" class="label-modal label-animation">3º Horário</label>
+                  <input id="verHorario3" type="text" class="form-control center-text input input-animation timepicker"
+                    name="verIptHorario3" />
+                </div>
+
+                <!-- Quantidade de ração em gramas -->
+                <div class="form-group">
+                  <label for="verQtdRacao" class="label-modal label-animation">Quantidade de ração (em g):</label>
+                  <input id="verQtdRacao" type="text" class="form-control center-text input input-animation"
+                    name="verIptQtdRacao" disabled />
+                </div>
 
             </form>
           </div>
