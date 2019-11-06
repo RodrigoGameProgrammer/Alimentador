@@ -1,7 +1,8 @@
 
 //Variavel global uid para indentificar o usuário e poder usar em todas as funções
 var uid = null;
-
+var user = firebase.auth().currentUser;
+var email_id;
 // var btn_salvar = null;
 
 //Variaveis globais 
@@ -39,8 +40,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		// Usuário Logado
 		uid = user.uid;
-		var user = firebase.auth().currentUser;
-		var email_id = user.email;
+
+		 email_id = user.email;
 		document.getElementById("user_id").innerHTML = "Bem-Vindo: " + email_id;
 		document.getElementById("user_id").style.color = "white";
 
@@ -249,7 +250,7 @@ function agendar() {
 	verif_horario1 = input_horario1.value.toString();
 	verif_horario2 = input_horario2.value.toString();
 	verif_horario3 = input_horario3.value.toString();
-
+	
 	//Colocando os dados das variveis no banco
 	firebase.database().ref('users/' + uid).set({
 		qtdPorcao: verif_qtdPorcao,
@@ -257,6 +258,7 @@ function agendar() {
 		horario1: verif_horario1,
 		horario2: verif_horario2,
 		horario3: verif_horario3,
+		email: email_id,
 	}, function (error) {
 		if (error) {
 			// The write failed...
@@ -289,14 +291,23 @@ function verAgendamento() {
 		console.log(verif_qtdRacao);
 		console.log(verif_horario1);
 		console.log(verif_horario2);
-		console.log(verif_horario2);
+		console.log(verif_horario3);
 
-		//Trocando os valores dos campos input no HTML
+		//Trocando os valores dos campos input do modal ver agendamento no HTML
 		document.getElementById("verQtdPorcao").value = verif_qtdPorcao;
 		document.getElementById("verHorario1").value = verif_horario1;
 		document.getElementById("verHorario2").value = verif_horario2;
 		document.getElementById("verHorario3").value = verif_horario3;
 		document.getElementById("verQtdRacao").value = verif_qtdRacao;
+
+		//Colocar o checked no input radio
+		if(verif_qtdPorcao === 3){
+			document.getElementById("verInputFilhote").checked = true;
+		}else{
+			document.getElementById("verInputAdulto").checked = true;
+			document.getElementById("verHorario3").style.display = "none";
+			document.getElementById("verLabel3").style.display = "none";
+		}
 	});
 }
 
@@ -305,83 +316,20 @@ function verAgendamento() {
 // /* ->>> ATUALIZAR AGENDAMENTO  <<<-*/
 // /* --------------------------------*/
 
-// //Primeira vez que clicar no botão editar dentro do Modal
-// function editar() {
 
-// 	//Liberar os campos para digitar
-// 	document.getElementById("quantidadeP").disabled = false;
-// 	document.getElementById("horarioP").disabled = false;
-// 	document.getElementById("horarioS").disabled = false;
-// 	document.getElementById("quantidadeR").disabled = false;
+function editar() {
 
-// 	//Botão salvar está ativado
-// 	btn_salvar = true;
+	$('#mdlAgendamento').modal('toggle');
+	$('#mdlVerAgendamento').modal('hide');
 
-// 	//Se o botão salvar estivar ativado
-// 	if (btn_salvar == true) {
+}
 
-// 		//Troca o texto para Salvar e o onclick para a função atualizar
-// 		document.getElementById("btn_editar").innerText = "Salvar";
-// 		document.getElementById("btn_editar").setAttribute('onclick', 'atualizar()');
+/* -----------------------------*/
+/* ->>> DELETAR AGENDAMENTO <<<-*/
+/* -----------------------------*/
 
-// 	} else {
-// 		console.log("error 404, btn_salvar não funciona");
-// 		return;
-// 	}
-
-// }
-
-// //Depois que clicar no botão editar ele vira o salvar e ganha a função atualizar
-// function atualizar() {
-
-// 	//Declarando e atribuindo valores as variaves e convertendo para inteiro e string
-// 	verif_qtdPorcao = parseInt(document.getElementById("quantidadeP").value);
-// 	verif_qtdRacao = parseInt(document.getElementById("quantidadeR").value);
-// 	verif_horario = document.getElementById("horarioP").value.toString();
-// 	verif_horario2= document.getElementById("horarioS").value.toString();
-
-// 	//Função update do Firebase
-// 	firebase.database().ref('users/' + uid).update({
-// 		qtdPorcao: verif_qtdPorcao,
-// 		qtdRacao: verif_qtdRacao,
-// 		horario: verif_horario + ":" + "00",
-// 		servHorario: verif_horario2+ ":" + "00",
-// 	}, function (error) {
-// 		if (error) {
-// 			alert("Campos Vazios");
-// 		} else {
-// 			// Data saved successfully!
-// 		}
-// 	});
-
-// 	//Depois do update conferimos se o botão ainda é o salvar 
-// 	if (btn_salvar == true) {
-
-// 		//Se for voltamos ele pro editar 
-// 		btn_salvar = false;
-// 		document.getElementById("btn_editar").innerText = "Editar";
-// 		document.getElementById("btn_editar").setAttribute('onclick', 'editar()');
-
-// 		//Desabilitamos os campos novamente
-// 		document.getElementById("quantidadeP").disabled = true;
-// 		document.getElementById("horarioP").disabled = true;
-// 		document.getElementById("horarioS").disabled = true;
-// 		document.getElementById("quantidadeR").disabled = true;
-
-// 	} else {
-
-// 		console.log("error 404, btn_salvar não funciona");
-// 		return;
-
-// 	}
-// }
-
-// /* -----------------------------*/
-// /* ->>> DELETAR AGENDAMENTO <<<-*/
-// /* -----------------------------*/
-
-// function deletarAgendamento() {
-// 	firebase.database().ref('users/' + uid).remove();
-// 	$('#mdlVerAgendamento').modal('toggle');
-// }
+function deletarAgendamento() {
+	firebase.database().ref('users/' + uid).remove();
+	$('#mdlVerAgendamento').modal('toggle');
+}
 
