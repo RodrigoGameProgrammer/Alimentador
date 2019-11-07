@@ -41,7 +41,13 @@ function alertLogin() {
 	divAlertLogin.style.display = "block";
 }
 
+
 //Remove a mensagem ao clicar em um dos campos ou no botão de criar conta
+btnCriarConta.addEventListener('click', (event) => {
+	divAlertLogin.style.display = "none";
+	$("#criarConta").modal();
+}, true);
+
 function removeAlert() {
 
 	userEmail.addEventListener('focus', (event) => {
@@ -54,9 +60,5 @@ function removeAlert() {
 	}, true);
 
 	//Chama o modal cadastrar via script devido ao conflito que ocorre ao adicionar a função no botão
-	btnCriarConta.addEventListener('click', (event) => {
-		divAlertLogin.style.display = "none";
-		$("#criarConta").modal();
-	}, true);
 
 }
