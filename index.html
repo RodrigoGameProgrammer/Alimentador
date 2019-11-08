@@ -18,46 +18,51 @@
   <title>EZFeeder</title>
 </head>
 
-<body class="bg-login">
-
-  <div class="container-fluid" style="border: 2px solid red">
-
-    <div class="row w-75 center">
-      <h1 id="user_id" class="col-form-label">Email</h1>
-    </div>
-
+<body class="bg-index">
+   
+  
+  <div class="container-fluid">
+      
     <!--
     /* --------------------------------------*/
     /* ---------------- MENU ----------------*/
     /* --------------------------------------*/
     -->
 
-    <div class="row w-75 center" style="border: 2px solid yellow">
+    <div class="row w-75 center">
 
-      <div class="col-sm margin-tb-20" align="center">
-        <button type="button" class="btn btn-padrao" onclick="verAgendamento()" data-toggle="modal"
+        <div class="row w-75 center">
+            <h1 id="user_id" class="col-form-label">Email</h1>
+          </div>
+
+      <div class="col-sm" align="center">
+
+        <div id="clock">
+          <p class="date">{{ date }}</p>
+          <p class="time">{{ time }}</p>
+        </div>
+
+        <button type="button" class="btn btn-padrao margin-tb-5" onclick="verAgendamento()" data-toggle="modal"
           data-target="#mdlVerAgendamento">
           <i class="far fa-clock"></i>
           Horário Agendado
         </button>
-      </div>
 
-      <div class="col-sm margin-tb-20" align="center">
-        <button type="button" class="btn btn-padrao">
-          <i class="fas fa-envelope-open-text"></i>
-          Logs
-        </button>
-      </div>
-
-
-      <div class="card border-success mb-3 center w-75">
-        <div class="card-header center-text"><b>Você Sabia?</b></div>
-        <div class="card-body text-success">
-          <p  align="justify" id="dicas" class="card-text"> </p>
+      
+          <button type="button" class="btn btn-padrao">
+            <i class="fas fa-envelope-open-text"></i>
+            Logs
+          </button>
+      
+          
+      <div class="card mb-3 center w-75 bordaDicas">
+          <div class="card-header center-text bordaDicas"><b>Você Sabia?</b></div>
+          <div class="card-body text-success">
+            <p align="justify" id="dicas" class="card-text"> </p>
+          </div>
         </div>
+
       </div>
-
-
     </div>
 
     <!--
@@ -251,23 +256,26 @@
         <button type="button" class="btn btn-danger btn-lg w-25" onclick="logout()">Sair</button>
       </div>
     </div>
+
+    <!-- <div id="paw" class="bg-paw" style="width: 140px; height: 140px; border: 1px solid red;"></div> -->
   </div>
 
 
   <!--=========================================BOOTSTRAP======================================================-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 
   <!--=========================================TIMEPICKER======================================================-->
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   <!--=========================================FIREBASE========================================================-->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -286,6 +294,7 @@
   <script src="js/database.js"></script>
   <script src="js/logout.js"></script>
   <script src="js/dicas.js"></script>
+  <script src="js/clock.js"></script>
 </body>
 
 </html>

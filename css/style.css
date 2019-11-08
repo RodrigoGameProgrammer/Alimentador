@@ -2,72 +2,85 @@
 /* ---->>> PLANOS DE FUNDO <<<-----*/
 /* -----------------------------------*/
 
-.bg-index{
+.bg-index {
+
+  /* background: radial-gradient(ellipse at center,  #0a2e38  0%, #000000 70%); */
+  background-color: #59A5FF;
   /* The image used */
-  background: url("https://wallpapermemory.com/uploads/329/dog-wallpaper-4k-308694.jpg") center no-repeat;
+  /* background: url("https://wallpapermemory.com/uploads/329/dog-wallpaper-4k-308694.jpg") center no-repeat; */
   /*https://wallpaperxyz.com/wp-content/uploads/Full-HD-1080p-Wallpapers-Desktop-Backgrounds-HD-Wallpaperxyz-dot-Com-3.jpg*/
 
   /* Full height */
-  height: 100vh;
+  /* height: 100vh; */
 
   /* Center and scale the image nicely */
-  background-size: cover;
+  /* background-size: cover; */
 }
 
-.bg-login{
+.bg-login {
   background-size: 613px 472px;
-  background-color:#59A5FF;  
+  background-color: #59A5FF;
 }
 
-/* -----------------------------*/
-/* ----->>> CENTRALIZAR <<<-----*/
-/* -----------------------------*/
+.bg-paw{
+  background-image:  url(../img/gif/paw-animation.gif);
+  background-repeat: no-repeat;
+  background-size: 140px 140px;
+  animation: paw 10s linear infinite;
+  transform: rotate(45deg);
+}
 
-.center{
+/* --------------------------------------*/
+/* ----->>> CENTRALIZAR / MARGEM <<<-----*/
+/* --------------------------------------*/
+
+.center {
   margin: 0 auto;
 }
 
-.center-text { 
-	text-align-last:center;
+.center-text {
+  text-align-last: center;
+}
+
+/*Coloca uma margem top e bottom nos botões para centralizar na vertical*/
+.margin-tb-20 {
+  margin: 20% auto 20%;
+}
+
+.margin-tb-5 {
+  margin: 5% auto 5%;
 }
 
 /* -----------------------------------*/
 /* ---------->>> BOTÕES <<<-----------*/
 /* -----------------------------------*/
 
-/*Coloca uma margem top e bottom nos botões para centralizar na vertical*/
-.margin-tb-20{
-	margin: 10% auto 10%;
-}
-
-.btn-padrao{
+.btn-padrao {
   width: 250px;
   height: 50px;
   background-color: #ABADFF;
   border-radius: 50px;
   text-transform: uppercase;
   font-weight: bold;
-
 }
 
-.btn-danger{
-  background-color: #FF584D;
-}
-
-.btn-danger:hover{
-  background-color: #FF1000;
-}
-
-.btn-padrao2{
+.btn-padrao2 {
   background-color: #ABADFF;
 }
 
 .btn-padrao:hover, .btn-padrao2:hover{
   background-color: #C0FFCE;
-
 }
 
-.btn:focus{
+.btn-danger {
+  background-color: #FF584D;
+}
+
+.btn-danger:hover {
+  background-color: #FF1000;
+}
+
+.btn:focus {
   box-shadow: 0 0 0 0;
 }
 
@@ -75,26 +88,26 @@
 /* ------>>> INPUTS E SELECT <<<------*/
 /* -----------------------------------*/
 
-.input:focus{
+.input:focus {
   border: 2px solid #BF77FE;
   box-shadow: 0 0 0 0;
 }
 
-.select:focus{
+.select:focus {
   border: 2px solid #BF77FE;
   box-shadow: 0 0 0 0;
 }
 
-.input:disabled{
+.input:disabled {
   background-color: #d3d3d3;
   cursor: not-allowed;
 }
 
-.label-none{
+.label-none {
   display: none;
 }
 
-.input-none{
+.input-none {
   display: none;
 }
 
@@ -102,15 +115,15 @@
 /* ----------->>> MODAL <<<-----------*/
 /* -----------------------------------*/
 
-.bg-modal{
-  background-color:#59A5FF;  
+.bg-modal {
+  background-color: #59A5FF;
 }
 
-.label-modal{
+.label-modal {
   color: #000;
 }
 
-.mdlAgendamento{
+.mdlAgendamento {
   background-color: #A6CEFF;
 }
 
@@ -118,35 +131,36 @@
   z-index: 3500 !important;
 }
 
-.ui-timepicker-standard{
- background-color: #fff;
+.ui-timepicker-standard {
+  background-color: #fff;
 }
 
 
 .ui-timepicker-standard .ui-state-hover {
   background-color: #BF77FE;
- }
- 
+}
 
 
 /* -----------------------------------------*/
 /* ------>>> ANIMAÇÕES/STYLE ALERT <<<------*/
 /* -----------------------------------------*/
 
-.alert{
+.alert {
   display: none;
   width: 40%;
 }
-@keyframes fade-animation{
-  from{
+
+@keyframes fade-animation {
+  from {
     opacity: 0;
   }
-  to{
+
+  to {
     opacity: 1;
   }
 }
 
-.fade-animation{
+.fade-animation {
   animation: fade-animation 1.5s;
   animation-fill-mode: backwards;
 }
@@ -156,30 +170,31 @@
 /* ------------------------------------------------*/
 
 /* Impedir que a animação saia do form */
-form{
+form {
   overflow: hidden;
 }
 
 /* Impedir barra de rolagem */
-body{
+body {
   overflow: hidden;
 }
 
 /* Animações dos Input */
-@keyframes input-animation{
-    from{
-      opacity: 0;
-      transform: translateY(100%);
-    }
-    to{
-      opacity: 1;
-      transform: translateX(0);
-    }
+@keyframes input-animation {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.input-animation{
-   animation: input-animation 1.5s;
-   animation-fill-mode: backwards;
+.input-animation {
+  animation: input-animation 1.5s;
+  animation-fill-mode: backwards;
 }
 
 /* Animações dos Label */
@@ -188,22 +203,23 @@ body{
     opacity: 0;
     transform: translateX(-100%);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-.label-animation{
- animation: label-animation 1.5s;
- animation-fill-mode: backwards;
+.label-animation {
+  animation: label-animation 1.5s;
+  animation-fill-mode: backwards;
 }
 
 /* ----------------------------------*/
 /* >>> ANIMAÇÕES BACKGROUND LOGIN <<<*/
 /* ----------------------------------*/
 
-.bg-animation li{
+.bg-animation li {
   width: 32px;
   height: 32px;
   background-image: url(../img/icons/icon-osso.png);
@@ -215,52 +231,92 @@ body{
 }
 
 @keyframes bg-animation-login {
- from {
-   opacity: 0;
-   transform: translateY(0);
- }
- 50%{
-   opacity: 1;
- }
- to {
-   opacity: 0;
-   transform: translateY(90vh) rotate(960deg);
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(90vh) rotate(960deg);
   }
 }
 
-.dog{
+.dog {
   bottom: 0vh;
   display: block;
   position: absolute;
   animation: dog-animation 10s linear infinite;
-  
+
 }
 
 @keyframes dog-animation {
   from {
     opacity: 0;
     transform: translateX(0);
-     
+
   }
-  50%{
+
+  50% {
     opacity: 1;
   }
+
   to {
     opacity: 0;
     transform: translateX(100vw);
-   }
- }
+  }
+}
 
- @keyframes dog-animation2 {
+/* ----------------------------------*/
+/* >>> ANIMAÇÕES BACKGROUND INDEX <<<*/
+/* ----------------------------------*/
+
+@keyframes paw {
   from {
     opacity: 0;
-    transform: translateX(100vw);
+    transform: translateY(0);
+    transform: rotate(45deg);
   }
-  50%{
+
+  50% {
     opacity: 1;
   }
+
   to {
     opacity: 0;
-    transform: translateX(0);
-   }
- }
+    transform: translateY(-100vh);
+  }
+}
+
+
+/* ----------------------------------*/
+/* --------->>> RELÓGIO <<<----------*/
+/* ----------------------------------*/
+
+#clock {
+  font-family: 'Share Tech Mono', monospace;
+  color: #ffffff;
+  text-align: center;
+  color: #daf6ff;
+  text-shadow: 0 0 20px rgba(10, 175, 230, 1),  0 0 20px rgba(10, 175, 230, 0);
+
+}
+
+.time {
+  letter-spacing: 0.05em;
+  font-size: 80px;
+  padding: 5px 0;
+}
+.date {
+  letter-spacing: 0.1em;
+  font-size: 24px;
+}
+.text {
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  padding: 20px 0 0;
+}
