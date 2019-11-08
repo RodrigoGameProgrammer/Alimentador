@@ -18,9 +18,9 @@
   <title>EZFeeder</title>
 </head>
 
-<body class="bg-index">
+<body class="bg-login">
 
-  <div class="container-fluid">
+  <div class="container-fluid" style="border: 2px solid red">
 
     <div class="row w-75 center">
       <h1 id="user_id" class="col-form-label">Email</h1>
@@ -32,7 +32,7 @@
     /* --------------------------------------*/
     -->
 
-    <div class="row w-75 center">
+    <div class="row w-75 center" style="border: 2px solid yellow">
 
       <div class="col-sm margin-tb-20" align="center">
         <button type="button" class="btn btn-padrao" onclick="verAgendamento()" data-toggle="modal"
@@ -49,6 +49,15 @@
         </button>
       </div>
 
+
+      <div class="card border-success mb-3 center w-75">
+        <div class="card-header center-text"><b>Você Sabia?</b></div>
+        <div class="card-body text-success">
+          <p  align="justify" id="dicas" class="card-text"> </p>
+        </div>
+      </div>
+
+
     </div>
 
     <!--
@@ -60,8 +69,8 @@
     <div class="modal fade mdlAgendamento" id="mdlAgendamento" data-backdrop="static">
       <ul class="bg-animation"></ul>
       <a class="dog" href="https://www.animatedimages.org/cat-dogs-202.htm">
-         <img src="https://www.animatedimages.org/data/media/202/animated-dog-image-0081.gif" border="0" 
-            alt="animated-dog-image-0081" />
+        <img src="https://www.animatedimages.org/data/media/202/animated-dog-image-0081.gif" border="0"
+          alt="animated-dog-image-0081" />
       </a>
       <div class="modal-dialog modal-sm">
         <div class="modal-content bg-modal">
@@ -164,61 +173,63 @@
             <form action="" class="align-content-start">
               <div class="form-group">
 
-                 <!-- Checkbox perfil filhote -->
-                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="verInputFilhote"
-                      value="option1" onclick="checarPerfil()" disabled>
-                    <label class="form-check-label label-animation" for="inputFilhote">Filhote</label>
-                  </div>
-
-                  <!-- Checkbox perfil adulto -->
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="verInputAdulto"
-                      value="option2" onclick="checarPerfil()" disabled>
-                    <label class="form-check-label label-animation" for="inputAdulto">Adulto</label>
-                  </div>
+                <!-- Checkbox perfil filhote -->
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="verInputFilhote"
+                    value="option1" onclick="checarPerfil()" disabled>
+                  <label class="form-check-label label-animation" for="inputFilhote">Filhote</label>
                 </div>
 
-                <!-- Quantidade de porções -->
-                <div class="form-group">
-                  <label for="verQtdPorcao" class="label-modal label-animation">Quantidade de Porção</label>
-                  <input id="verQtdPorcao" type="text" class="form-control center-text input input-animation"
-                    name="verIptQtdPorcao" disabled/>
+                <!-- Checkbox perfil adulto -->
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="verInputAdulto"
+                    value="option2" onclick="checarPerfil()" disabled>
+                  <label class="form-check-label label-animation" for="inputAdulto">Adulto</label>
                 </div>
+              </div>
+
+              <!-- Quantidade de porções -->
+              <div class="form-group">
+                <label for="verQtdPorcao" class="label-modal label-animation">Quantidade de Porção</label>
+                <input id="verQtdPorcao" type="text" class="form-control center-text input input-animation"
+                  name="verIptQtdPorcao" disabled />
+              </div>
 
 
-                <!-- 1º Horário -->
+              <!-- 1º Horário -->
 
-                <div class="form-group">
-                  <label id="verLabel1" class="label-modal label-animation">1º Horário</label>
-                  <input id="verHorario1" type="text" class="form-control center-text input input-animation timepicker"
-                    name="verIptHorario1" disabled/>
-                </div>
+              <div class="form-group">
+                <label id="verLabel1" class="label-modal label-animation">1º Horário</label>
+                <input id="verHorario1" type="text" class="form-control center-text input input-animation timepicker"
+                  name="verIptHorario1" disabled />
+              </div>
 
-                <!-- 2º Horário -->
+              <!-- 2º Horário -->
 
-                <div class="form-group">
-                  <label id="verLabel2" class="label-modal label-animation">2º Horário</label>
-                  <input id="verHorario2" type="text" class="form-control center-text input input-animation timepicker"
-                    name="verIptHorario2" disabled/>
-                </div>
-                
-                <!-- 3º Horário -->
+              <div class="form-group">
+                <label id="verLabel2" class="label-modal label-animation">2º Horário</label>
+                <input id="verHorario2" type="text" class="form-control center-text input input-animation timepicker"
+                  name="verIptHorario2" disabled />
+              </div>
 
-                <div class="form-group">
-                  <label id="verLabel3" class="label-modal label-animation">3º Horário</label>
-                  <input id="verHorario3" type="text" class="form-control center-text input input-animation timepicker"
-                    name="verIptHorario3" disabled/>
-                </div>
+              <!-- 3º Horário -->
 
-                <!-- Quantidade de ração em gramas -->
-                <div class="form-group">
-                  <label for="verQtdRacao" class="label-modal label-animation">Quantidade de ração (em g):</label>
-                  <input id="verQtdRacao" type="text" class="form-control center-text input input-animation"
-                    name="verIptQtdRacao" disabled />
-                </div>
+              <div class="form-group">
+                <label id="verLabel3" class="label-modal label-animation">3º Horário</label>
+                <input id="verHorario3" type="text" class="form-control center-text input input-animation timepicker"
+                  name="verIptHorario3" disabled />
+              </div>
 
-                <a href="https://www.animatedimages.org/cat-dogs-202.htm"><img src="https://www.animatedimages.org/data/media/202/animated-dog-image-0932.gif" border="0" alt="animated-dog-image-0932" /></a>
+              <!-- Quantidade de ração em gramas -->
+              <div class="form-group">
+                <label for="verQtdRacao" class="label-modal label-animation">Quantidade de ração (em g):</label>
+                <input id="verQtdRacao" type="text" class="form-control center-text input input-animation"
+                  name="verIptQtdRacao" disabled />
+              </div>
+
+              <a href="https://www.animatedimages.org/cat-dogs-202.htm"><img
+                  src="https://www.animatedimages.org/data/media/202/animated-dog-image-0932.gif" border="0"
+                  alt="animated-dog-image-0932" /></a>
 
             </form>
           </div>
@@ -233,13 +244,15 @@
         </div>
       </div>
     </div>
+
+    <!----BOTOES INFERIORES---->
+    <div class="row w-75 center">
+      <div class="col-sm" align="center">
+        <button type="button" class="btn btn-danger btn-lg w-25" onclick="logout()">Sair</button>
+      </div>
+    </div>
   </div>
- <!----BOTOES INFERIORES---->
- <div class="row w-75 center">
-  <div class="col-sm" align="center">
-    <button type="button" class="btn btn-danger btn-lg w-25" onclick="logout()">Sair</button>
-  </div>
-</div>
+
 
   <!--=========================================BOOTSTRAP======================================================-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
