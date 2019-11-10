@@ -40,12 +40,12 @@ firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		// Usuário Logado
 		uid = user.uid;
-
+		verificarUsuario()
 		 email_id = user.email;
 		document.getElementById("user_id").innerHTML = "Bem-Vindo: " + email_id;
 		document.getElementById("user_id").style.color = "white";
 
-		verificarUsuario()
+		
 
 		console.log(user);
 	} else {
@@ -71,9 +71,11 @@ function verificarUsuario() {
 		//Se os campos no banco forem vazios(null) significa que o usuário é novo, chamando o modal do primeiro agendamento
 		if (verif_horario1 == null && verif_horario2 == null && verif_horario3 == null) {
 			console.log("usuario novo");
+			document.getElementById("btnCancelar").style.display = "none";
 			$("#mdlAgendamento").modal();
 		} else {
 			console.log("usuario existente");
+			document.getElementById("btnCancelar").style.display = "block";
 		}
 	});
 }

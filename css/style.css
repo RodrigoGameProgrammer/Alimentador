@@ -4,17 +4,25 @@
 
 .bg-index {
 
+  /* Fundo alternativo (combina com o relogio) */
   /* background: radial-gradient(ellipse at center,  #0a2e38  0%, #000000 70%); */
-  background-color: #59A5FF;
+  /* background-color: #59A5FF; */
+
   /* The image used */
-  /* background: url("https://wallpapermemory.com/uploads/329/dog-wallpaper-4k-308694.jpg") center no-repeat; */
+  background: url(/img/bg-index.jpg) no-repeat;
   /*https://wallpaperxyz.com/wp-content/uploads/Full-HD-1080p-Wallpapers-Desktop-Backgrounds-HD-Wallpaperxyz-dot-Com-3.jpg*/
 
   /* Full height */
-  /* height: 100vh; */
+  height: 100vh;
 
   /* Center and scale the image nicely */
-  /* background-size: cover; */
+  background-size: cover;
+}
+
+.bg-menu{
+  background-color:rgba(49, 53, 51, 0.5); 
+  height: 80vh; 
+  margin-top: 5vh;
 }
 
 .bg-login {
@@ -51,15 +59,18 @@
   margin: 5% auto 5%;
 }
 
+.mr-6{
+  margin-right: 5vw;
+}
+
 /* -----------------------------------*/
 /* ---------->>> BOTÕES <<<-----------*/
 /* -----------------------------------*/
 
 .btn-padrao {
   width: 250px;
-  height: 50px;
+  height: 150px;
   background-color: #ABADFF;
-  border-radius: 50px;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -68,7 +79,20 @@
   background-color: #ABADFF;
 }
 
-.btn-padrao:hover, .btn-padrao2:hover{
+.btn-login{
+  width: 250px;
+  height: 50px;
+  background-color: #ABADFF;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn-padrao:hover{
+  background-color:rgba(10, 175, 230);
+}
+
+.btn-login:hover, .btn-padrao2:hover{
   background-color: #C0FFCE;
 }
 
@@ -251,7 +275,6 @@ body {
   display: block;
   position: absolute;
   animation: dog-animation 10s linear infinite;
-
 }
 
 @keyframes dog-animation {
@@ -291,6 +314,35 @@ body {
     transform: translateY(-100vh);
   }
 }
+
+
+/* ----------------------------------*/
+/* ----->>> ANIMAÇÕES BOTÕES <<<-----*/
+/* ----------------------------------*/
+
+@keyframes shadow-pulse
+{
+  0% {
+
+		box-shadow: 0 0 0 0 rgba(26, 194, 245, 0.7);
+	}
+	
+	70% {
+	
+		box-shadow: 0 0 0 20px rgba(26, 194, 245, 0);
+	}
+	
+	100% {
+
+		box-shadow: 0 0 0 0 rgba(26, 194, 245, 0);
+	}
+}
+
+.shadow:hover{
+  border-radius: 3px;
+  animation: shadow-pulse 1s linear;
+}
+
 
 
 /* ----------------------------------*/
