@@ -36,13 +36,18 @@
 
 	<div class="container-fluid d-flex justify-content-center">
 		<div class="row w-75">
-			<div class="col-sm margin-tb-20" align="center">
+			<div class="col-sm margin-tb-5" align="center">
 				<form class="w-75">
+
+					<div>
+						<img src="img/icons/logo-icon-white.png">
+					</div>
 
 					<!-- Mensagem de erro caso a validação não esteja correta -->
 					<div id="alertLogin" class="alert alert-danger fade-animation" role="alert">
 						Usuário ou senha incorretos
 					</div>
+
 
 					<!-- Campo email -->
 					<div class="form-group">
@@ -61,12 +66,12 @@
 					<!-- Botão Login -->
 					<div>
 						<button id="btnLogin" type="button" class="btn btn-login" onclick="login()">Entrar</button>
-					</div><br>
 
-					<!-- Botão criar conta -->
-					<div>
+						<!-- Botão criar conta -->
+
 						<button id="btnCriarConta" type="button" class="btn btn-login" data-target="#criarConta"
 							data-whatever="cadastrar" onclick="removeAlert()">Criar Conta</button>
+
 					</div>
 				</form>
 			</div>

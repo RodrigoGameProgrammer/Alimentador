@@ -24,3 +24,5 @@ for (let i = 0; i < 8; i++) {
     //Pegando os filhos da ul e colocando atributos diferentes em cada uma
     bg_animation.appendChild(bg_li);
 }
+
+

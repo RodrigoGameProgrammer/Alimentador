@@ -3,6 +3,12 @@
 var uid = null;
 var user = firebase.auth().currentUser;
 var email_id;
+
+var galleryRef =  firebase.storage().ref('users/' + uid);
+
+
+var file = null;
+
 // var btn_salvar = null;
 
 //Variaveis globais 
@@ -335,3 +341,9 @@ function deletarAgendamento() {
 	$('#mdlVerAgendamento').modal('toggle');
 }
 
+function uploadImage(){
+	var file = document.getElementById("iptImage").files[0];
+	galleryRef.put(file).then(function(snapshot) {
+	console.log('Uploaded a blob or file!');
+	});
+}
