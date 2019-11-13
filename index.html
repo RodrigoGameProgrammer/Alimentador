@@ -29,21 +29,24 @@
     /* --------------------------------------*/
     -->
 
-    <div class="container-fluid" style="border: 2px solid rgb(0, 255, 85);">
+    <div class="container-fluid" >
 
       <!-- <div class="row w-75 center" style="border: 2px solid green;">
         <h1 id="user_id" class="col-form-label">Email</h1>
       </div> -->
 
-      <div id="clock" class="row" style="border: 2px solid rgb(255, 0, 221);">
+      <div id="clock" class="row" >
 
-        <div class="col-sm-8 bg-menu " style="border: 2px solid rgb(9, 255, 0);">
+        <div class="col-sm-8 center" >
 
-          <div class="row" style="border: 3px solid rgb(0, 0, 0);">
-            <img class="center" src="img/icons/logo-icon2.png">
+          <div class="row">
+            <img class="center" src="img/icons/logo-icon-white.png">
           </div>
+          
+          
+          
           <div id="divGallery">
-            <div class="row" style="border: 3px solid rgb(0, 26, 255);">
+            <div class="row" >
               <div class="col">
                 <p class="date">{{ date }}</p>
                 <p class="time">{{ time }}</p>
@@ -51,9 +54,9 @@
 
             </div>
 
-            <div class="row" style="border: 2px solid rgb(238, 255, 0);">
+            <div class="row" >
 
-              <div class="col" style="border: 3px solid rgb(0, 26, 255);">
+              <div class="col" >
                 <button type="button" class="btn btn-padrao shadow" onclick="verAgendamento()" data-toggle="modal"
                   data-target="#mdlVerAgendamento">
                   <img class="ml-4" src="img/icons/icon_78px/dog-icon-78.png">
@@ -62,14 +65,14 @@
 
               </div>
 
-              <div class="col" style="border: 3px solid rgb(0, 26, 255);">
+              <div class="col">
                 <button type="button" class="btn btn-padrao shadow">
                   <img class="ml-4" src="img/icons/icon_78px/logs-icon-78.png">
                   <p class="mt-3">Registros</p>
                 </button>
               </div>
 
-              <div class="col" style="border: 3px solid rgb(0, 26, 255);">
+              <div class="col" >
 
                 <button id="btnGallery" type="button" class="btn btn-padrao shadow" onclick="mostraGaleria()">
                   <img src="img/icons/icon_78px/gallery-icon-78.png">
@@ -83,9 +86,9 @@
                 <input id="iptImage" type="file" name="pic" accept="image/*">
                 <button type="button" class="btn btn-login btn-lg w-25" onclick="uploadImage()">enviar</button>
               </form> -->
-
+        
               <!----BOTOES INFERIORES---->
-              <div class="row w-75 center" style="border: 2px solid rgb(255, 0, 128);">
+              <div class="row w-75 center margin-tb-5" >
                 <div class="col-sm" align="center">
                   <button type="button" class="btn btn-danger btn-lg w-25" onclick="logout()">Sair</button>
                 </div>

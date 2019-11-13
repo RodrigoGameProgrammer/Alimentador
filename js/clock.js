@@ -6,13 +6,17 @@ var clock = new Vue({
     }
 });
 
-var week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+/*+ ' ' + week[cd.getDay()]
+
+var week = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
+*/
+
 var timerID = setInterval(updateTime, 1000);
 updateTime();
 function updateTime() {
     var cd = new Date();
     clock.time = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2);
-    clock.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth()+1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()];
+    clock.date = zeroPadding(cd.getDate(), 2) + '/' + zeroPadding(cd.getMonth()+1, 2) + '/' + zeroPadding(cd.getFullYear(), 4);
 };
 
 function zeroPadding(num, digit) {

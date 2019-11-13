@@ -6,17 +6,20 @@
 
   /* Fundo alternativo (combina com o relogio) */
   /* background: radial-gradient(ellipse at center,  #0a2e38  0%, #000000 70%); */
-  /* background-color: #59A5FF; */
+  background-color: #59A5FF;
 
   /* The image used */
-  background: url(../img/bg-index-2.jpg) no-repeat;
+  background-image: url(../img/dog-6.png);
+  background-repeat:  no-repeat;
+  background-size: 20%;
+  background-position: left bottom;
   /*https://wallpaperxyz.com/wp-content/uploads/Full-HD-1080p-Wallpapers-Desktop-Backgrounds-HD-Wallpaperxyz-dot-Com-3.jpg*/
 
   /* Full height */
-  height: 100vh;
+  /* height: 100vh; */
 
   /* Center and scale the image nicely */
-  background-size: cover;
+  /* background-size: cover; */
 }
 
 .bg-menu{
@@ -27,6 +30,11 @@
 
 .bg-login {
   background-color: #59A5FF;
+  background-image: url(../img/dog-1.png);
+  background-repeat: no-repeat;
+  /*background-position: right;
+  background-position: bottom;
+  background-size: 350px 400px; */
 }
 
 .bg-paw{
