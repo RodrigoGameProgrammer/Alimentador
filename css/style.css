@@ -9,7 +9,7 @@
   /* background-color: #59A5FF; */
 
   /* The image used */
-  background: url(../img/bg-index.jpg) no-repeat;
+  background: url(../img/bg-index-2.jpg) no-repeat;
   /*https://wallpaperxyz.com/wp-content/uploads/Full-HD-1080p-Wallpapers-Desktop-Backgrounds-HD-Wallpaperxyz-dot-Com-3.jpg*/
 
   /* Full height */
@@ -21,12 +21,11 @@
 
 .bg-menu{
   background-color:rgba(49, 53, 51, 0.5); 
-  height: 80vh; 
+  height: fit-content; 
   margin-top: 5vh;
 }
 
 .bg-login {
-  background-size: 613px 472px;
   background-color: #59A5FF;
 }
 
@@ -61,15 +60,6 @@
 
 .mr-6{
   margin-right: 5vw;
-}
-
-/* --------------------------------------*/
-/* ------>>> LARGURA / ALTURA <<<--------*/
-/* --------------------------------------*/
-
-.icon-wh{
-  width: 100px;
-  height: 100px;
 }
 
 /* -----------------------------------*/
@@ -206,6 +196,9 @@ form {
   overflow: hidden;
 }
 
+#mdlVerAgendamento{
+  overflow: hidden;
+}
 /* Impedir barra de rolagem */
 body {
   overflow: hidden;
@@ -385,15 +378,27 @@ body {
 
 .time {
   letter-spacing: 0.05em;
-  font-size: 80px;
+  font-size: 50px;
   padding: 5px 0;
 }
 .date {
   letter-spacing: 0.1em;
   font-size: 24px;
 }
-.text {
-  letter-spacing: 0.1em;
-  font-size: 12px;
-  padding: 20px 0 0;
-}
+
+
+/* Dispositivos small (telefones em modo paisagem, com 576px ou mais) */
+@media (max-width: 576px) { 
+.col-sm-8{
+  margin: 0 auto;
+}  
+ }
+
+/* Dispositivos médios (tablets com 768px ou mais) */
+@media (min-width: 768px) {  }
+
+/* Dispositivos large (desktops com 992px ou mais) */
+@media (min-width: 992px) { }
+
+/* Dispositivos extra large (desktops grandes com 1200px ou mais) */
+@media (min-width: 1200px) { }

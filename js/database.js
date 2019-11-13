@@ -4,11 +4,6 @@ var uid = null;
 var user = firebase.auth().currentUser;
 var email_id;
 
-var galleryRef =  firebase.storage().ref('users/' + uid);
-
-
-var file = null;
-
 // var btn_salvar = null;
 
 //Variaveis globais 
@@ -16,7 +11,7 @@ var verif_qtdPorcao = null;
 var verif_qtdRacao = null;
 
 var verif_horario1 = null;
-var verif_horario2= null;
+var verif_horario2 = null;
 var verif_horario3 = null;
 
 
@@ -47,15 +42,18 @@ firebase.auth().onAuthStateChanged(function (user) {
 		// Usuário Logado
 		uid = user.uid;
 		verificarUsuario()
-		 email_id = user.email;
-		document.getElementById("user_id").innerHTML = "Bem-Vindo: " + email_id;
-		document.getElementById("user_id").style.color = "white";
+		email_id = user.email;
 
-		
-
+		if (document.body.contains(document.getElementById("user_id"))) {
+			document.getElementById("user_id").innerHTML = "Bem-Vindo: " + email_id;
+			document.getElementById("user_id").style.color = "white";
+		}else{
+			return;
+		}
+	
 		console.log(user);
 	} else {
-	//window.location.replace("login.html");
+		//window.location.replace("login.html");
 		console.log(user);
 	}
 });
@@ -81,7 +79,13 @@ function verificarUsuario() {
 			$("#mdlAgendamento").modal();
 		} else {
 			console.log("usuario existente");
-			document.getElementById("btnCancelar").style.display = "block";
+			var btn_cancelar = document.getElementById("btnCancelar");
+
+			if (document.body.contains(btn_cancelar)) {
+				btn_cancelar.style.display = "block";
+			}else{
+				return;
+			}
 		}
 	});
 }
@@ -96,7 +100,7 @@ function checarPerfil() {
 
 		input_qtdPorc.value = "3";
 		input_qtdRacao.value = "150";
-		
+
 		input_horario3.style.display = "block";
 		label_horario3.style.display = "block";
 
@@ -110,7 +114,7 @@ function checarPerfil() {
 
 		divAlertAgendar.style.display = "none";
 		divAlertAgendar2.style.display = "none";
-	
+
 	} else if (input_radio_adulto.checked == true) {
 
 		input_qtdPorc.value = "2";
@@ -153,21 +157,21 @@ function checarPerfil() {
 function validarHorario() {
 
 	if (input_radio_filhote.checked == true && (input_horario1.value == input_horario2.value || input_horario1.value == input_horario3.value || input_horario2.value == input_horario3.value)) {
-		
+
 		input_horario1.style.border = "2px solid #FF1000";
 		input_horario2.style.border = "2px solid #FF1000";
 		input_horario3.style.border = "2px solid #FF1000";
 
 		divAlertAgendar2.style.display = "block";
 
-inputFocus();
+		inputFocus();
 
-	
+
 	} else if (input_radio_adulto.checked == true && input_horario1.value == input_horario2.value) {
 
 		input_horario1.style.border = "2px solid #FF1000";
 		input_horario2.style.border = "2px solid #FF1000";
-	
+
 		divAlertAgendar2.style.display = "block";
 
 		inputFocus();
@@ -183,62 +187,62 @@ inputFocus();
 /* ----->>> INPUT FOCUS <<<-----*/
 /* -----------------------------*/
 
-function inputFocus(){
+function inputFocus() {
 
-		//Arrumando o focus e blur dos botões após o alert de horários iguais
+	//Arrumando o focus e blur dos botões após o alert de horários iguais
 
-		//Horário 1
-		input_horario1.addEventListener('focus', function(){
+	//Horário 1
+	input_horario1.addEventListener('focus', function () {
 
-			input_horario1.style.border = "2px solid #BF77FE";
-			input_horario2.style.border = "none";
-			input_horario3.style.border = "none";
+		input_horario1.style.border = "2px solid #BF77FE";
+		input_horario2.style.border = "none";
+		input_horario3.style.border = "none";
 
-			divAlertAgendar2.style.display = "none";
+		divAlertAgendar2.style.display = "none";
 
 
-		},true);
+	}, true);
 
-		input_horario1.addEventListener('blur', function(){
+	input_horario1.addEventListener('blur', function () {
 
-			input_horario1.style.border = "none";
+		input_horario1.style.border = "none";
 
-		},true);
+	}, true);
 
-		//Horário 2
+	//Horário 2
 
-		input_horario2.addEventListener('focus', function(){
+	input_horario2.addEventListener('focus', function () {
 
-			input_horario1.style.border = "none";
-			input_horario2.style.border = "2px solid #BF77FE";
-			input_horario3.style.border = "none";
+		input_horario1.style.border = "none";
+		input_horario2.style.border = "2px solid #BF77FE";
+		input_horario3.style.border = "none";
 
-			divAlertAgendar2.style.display = "none";
+		divAlertAgendar2.style.display = "none";
 
-		},true);
+	}, true);
 
-		input_horario2.addEventListener('blur', function(){
+	input_horario2.addEventListener('blur', function () {
 
-			input_horario2.style.border = "none";
+		input_horario2.style.border = "none";
 
-		},true);
+	}, true);
 
-		//Horário 3
-		input_horario3.addEventListener('focus', function(){
+	//Horário 3
+	input_horario3.addEventListener('focus', function () {
 
-			input_horario1.style.border = "none";
-			input_horario2.style.border = "none";
-			input_horario3.style.border = "2px solid #BF77FE";
+		input_horario1.style.border = "none";
+		input_horario2.style.border = "none";
+		input_horario3.style.border = "2px solid #BF77FE";
 
-divAlertAgendar2.style.display = "none";
+		divAlertAgendar2.style.display = "none";
 
-		},true);
+	}, true);
 
-		input_horario3.addEventListener('blur', function(){
+	input_horario3.addEventListener('blur', function () {
 
-			input_horario3.style.border = "none";
+		input_horario3.style.border = "none";
 
-		},true);
+	}, true);
 }
 
 
@@ -258,7 +262,7 @@ function agendar() {
 	verif_horario1 = input_horario1.value.toString();
 	verif_horario2 = input_horario2.value.toString();
 	verif_horario3 = input_horario3.value.toString();
-	
+
 	//Colocando os dados das variveis no banco
 	firebase.database().ref('users/' + uid).set({
 		qtdPorcao: verif_qtdPorcao,
@@ -309,9 +313,9 @@ function verAgendamento() {
 		document.getElementById("verQtdRacao").value = verif_qtdRacao;
 
 		//Colocar o checked no input radio
-		if(verif_qtdPorcao === 3){
+		if (verif_qtdPorcao === 3) {
 			document.getElementById("verInputFilhote").checked = true;
-		}else{
+		} else {
 			document.getElementById("verInputAdulto").checked = true;
 			document.getElementById("verHorario3").style.display = "none";
 			document.getElementById("verLabel3").style.display = "none";
@@ -341,9 +345,3 @@ function deletarAgendamento() {
 	$('#mdlVerAgendamento').modal('toggle');
 }
 
-function uploadImage(){
-	var file = document.getElementById("iptImage").files[0];
-	galleryRef.put(file).then(function(snapshot) {
-	console.log('Uploaded a blob or file!');
-	});
-}
