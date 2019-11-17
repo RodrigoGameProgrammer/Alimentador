@@ -6,35 +6,41 @@
 
   /* Fundo alternativo (combina com o relogio) */
   /* background: radial-gradient(ellipse at center,  #0a2e38  0%, #000000 70%); */
-  background-color: #59A5FF;
+  /* background-color: #59A5FF; */
 
   /* The image used */
-  background-image: url(../img/dog-6.png);
+  background-image: url(../img/bg-index15.jpg);
   background-repeat:  no-repeat;
-  background-size: 20%;
-  background-position: left bottom;
+
   /*https://wallpaperxyz.com/wp-content/uploads/Full-HD-1080p-Wallpapers-Desktop-Backgrounds-HD-Wallpaperxyz-dot-Com-3.jpg*/
-
+ 
   /* Full height */
-  /* height: 100vh; */
+ height: 100vh;
 
-  /* Center and scale the image nicely */
-  /* background-size: cover; */
+ /* Center and scale the image nicely */
+ background-size: cover;
+
 }
 
 .bg-menu{
   background-color:rgba(49, 53, 51, 0.5); 
-  height: fit-content; 
-  margin-top: 5vh;
+  border-radius: 10px;
+}
+
+.bg-login2{
+  background-color:rgba(49, 53, 51, 0.5); 
+  border-radius: 10px;
 }
 
 .bg-login {
-  background-color: #59A5FF;
-  background-image: url(../img/dog-1.png);
+  /* background-color: #59A5FF; */
+  background-image: url(../img/bg-index14.jpg);
   background-repeat: no-repeat;
-  /*background-position: right;
-  background-position: bottom;
-  background-size: 350px 400px; */
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-size: cover;
 }
 
 .bg-paw{
@@ -352,25 +358,6 @@ body {
   animation: shadow-pulse 1s linear;
 }
 
-
-.gallery{
-  animation: gallery-animation 4s linear 1;
-  animation-fill-mode: forwards;
-}
-
-
-@keyframes gallery-animation {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(90vh);
-    visibility: collapse;
-  }
-}
-
 /* ----------------------------------*/
 /* --------->>> RELÓGIO <<<----------*/
 /* ----------------------------------*/
@@ -395,18 +382,9 @@ body {
 }
 
 
-/* Dispositivos small (telefones em modo paisagem, com 576px ou mais) */
-@media (max-width: 576px) { 
-.col-sm-8{
-  margin: 0 auto;
-}  
- }
+@media (max-width: 991.98px) { 
 
-/* Dispositivos médios (tablets com 768px ou mais) */
-@media (min-width: 768px) {  }
-
-/* Dispositivos large (desktops com 992px ou mais) */
-@media (min-width: 992px) { }
-
-/* Dispositivos extra large (desktops grandes com 1200px ou mais) */
-@media (min-width: 1200px) { }
+  body{
+    overflow: auto;
+  }
+}
