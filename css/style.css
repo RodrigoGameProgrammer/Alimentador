@@ -9,7 +9,7 @@
   /* background-color: #59A5FF; */
 
   /* The image used */
-  background-image: url(../img/bg-index15.jpg);
+  background-image: url(../img/bg-index17.jpg);
   background-repeat:  no-repeat;
 
   /*https://wallpaperxyz.com/wp-content/uploads/Full-HD-1080p-Wallpapers-Desktop-Backgrounds-HD-Wallpaperxyz-dot-Com-3.jpg*/
@@ -23,7 +23,7 @@
 }
 
 .bg-menu{
-  background-color:rgba(49, 53, 51, 0.5); 
+  background-color:rgba(49, 53, 51, 0.92); 
   border-radius: 10px;
 }
 
