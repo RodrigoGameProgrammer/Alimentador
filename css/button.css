@@ -31,11 +31,11 @@
 }
 
 .draw-border:hover {
-  color: #ff93ed;
+  color: #ffa500;
 }
 
 .draw-border:hover::before, .draw-border:hover::after {
-  border-color: #ff93ed;
+  border-color: #ffa500;
   -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
   transition: border-color 0s, width 0.25s, height 0.25s;
   width: 100%;
@@ -60,10 +60,6 @@
   font: 700 1rem 'Roboto Slab', sans-serif;
   padding: 1em 0.5em;
   letter-spacing: 0.05rem;
-}
-
-.btn:focus {
-  outline: 2px dotted #ff93ed;
 }
 
 body {

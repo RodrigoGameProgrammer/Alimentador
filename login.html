@@ -64,11 +64,12 @@
 
 					<!-- Botão Login -->
 					<div class="row d-flex justify-content-center">
-						<button id="btnLogin" type="button" class="btn draw-border col-sm-3 mr-2 font" onclick="login()">Entrar</button>
+						
+						<button id="btnLogin" type="button" class="btn draw-border col-sm-3 mr-2" onclick="login()">Entrar</button>
 
 						<!-- Botão criar conta -->
 
-						<button id="btnCriarConta" type="button" class="btn draw-border col-sm-3 font" data-target="#criarConta"
+						<button id="btnCriarConta" type="button" class="btn draw-border col-sm-3" data-target="#criarConta"
 							data-whatever="cadastrar" onclick="removeAlert()">Criar Conta</button>
 
 					</div><br><br>
@@ -84,10 +85,10 @@
 	-->
 
 	<div>
-		<div class="modal fade" id="criarConta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		<div class="modal fade bg-modal" id="criarConta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog modal-sm" role="document">
-				<div class="modal-content bg-modal">
+				<div class="modal-content bg-menu">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">Criar Conta</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
@@ -119,7 +120,7 @@
 					</div>
 					<div class="modal-footer">
 						<!-- Botão criar conta -->
-						<button type="button" class="center btn btn-login" onclick="cadastro()">Criar Conta</button>
+						<button type="button" class="center btn draw-border" onclick="cadastro()">Criar Conta</button>
 					</div>
 				</div>
 			</div>

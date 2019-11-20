@@ -9,23 +9,38 @@
   /* background-color: #59A5FF; */
 
   /* The image used */
-  background-image: url(../img/bg-index17.jpg);
-  background-repeat:  no-repeat;
+  /* background-image: url(../img/bg-index17.jpg); */
+  /* background-repeat:  no-repeat; */
 
   /*https://wallpaperxyz.com/wp-content/uploads/Full-HD-1080p-Wallpapers-Desktop-Backgrounds-HD-Wallpaperxyz-dot-Com-3.jpg*/
  
   /* Full height */
- height: 100vh;
+ /* height: 100vh; */
 
  /* Center and scale the image nicely */
- background-size: cover;
+ /* background-size: cover; */
+
+ background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #ffa500);
+ background-size: 400% 400%;
+ animation: gradientBG 15s ease infinite;
 
 }
-
+@keyframes gradientBG {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
 .bg-menu{
-  background-color:rgba(49, 53, 51, 0.92); 
+  background-color:rgb(49, 53, 51); 
   border-radius: 10px;
 }
+
 
 .bg-login2{
   background-color:rgba(49, 53, 51, 0.5); 
@@ -89,7 +104,7 @@
 }
 
 .btn-padrao2 {
-  background-color: #ABADFF;
+  background-color: #58afd1 !important;
 }
 
 .btn-login{
@@ -101,19 +116,20 @@
 }
 
 .btn-padrao:hover{
-  background-color:rgba(10, 175, 230);
+  background-color:rgb(10, 175, 230);
 }
 
 .btn-login:hover, .btn-padrao2:hover{
-  background-color: #C0FFCE;
+  background-color: #ffa500 !important;
 }
 
 .btn-danger {
-  background-color: #FF584D;
+  background-color: #FF584D !important;
+  width: 100px;
 }
 
 .btn-danger:hover {
-  background-color: #FF1000;
+  background-color: #FF1000 !important;
 }
 
 .btn:focus {
@@ -125,12 +141,12 @@
 /* -----------------------------------*/
 
 .input:focus {
-  border: 2px solid #BF77FE;
+  border: 3px solid #ffa500;
   box-shadow: 0 0 0 0;
 }
 
 .select:focus {
-  border: 2px solid #BF77FE;
+  border: 3px solid #ffa500;
   box-shadow: 0 0 0 0;
 }
 
@@ -152,11 +168,15 @@
 /* -----------------------------------*/
 
 .bg-modal {
-  background-color: #59A5FF;
+  background-color: rgba(38, 41, 44, 0.5);
+}
+
+.bg-modal2 {
+  background-color: rgb(38, 41, 44);
 }
 
 .label-modal {
-  color: #000;
+  color: #fff;
 }
 
 .mdlAgendamento {
@@ -173,10 +193,16 @@
 
 
 .ui-timepicker-standard .ui-state-hover {
-  background-color: #BF77FE;
+  background-color: #ffa500;
 }
 
+.modal-title{
+  color: white;
+}
 
+.font{
+  color: #fff;
+}
 /* -----------------------------------------*/
 /* ------>>> ANIMAÇÕES/STYLE ALERT <<<------*/
 /* -----------------------------------------*/
@@ -339,21 +365,31 @@ body {
 {
   0% {
 
-		box-shadow: 0 0 0 0 rgba(26, 194, 245, 0.7);
+		box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7);
 	}
 	
 	70% {
 	
-		box-shadow: 0 0 0 20px rgba(26, 194, 245, 0);
+		box-shadow: 0 0 0 10px rgba(255, 165, 0, 0);
 	}
 	
 	100% {
 
-		box-shadow: 0 0 0 0 rgba(26, 194, 245, 0);
+		box-shadow: 0 0 0 0 rgba(255, 165, 0, 0);
 	}
 }
 
-.shadow:hover{
+.shadow2{
+   width: 150px;
+   height: 200px;
+}
+
+.shadow2:focus{
+  color: #58afd1;
+}
+
+.shadow2:hover{
+  border: none;
   border-radius: 3px;
   animation: shadow-pulse 1s linear;
 }
@@ -381,10 +417,69 @@ body {
   font-size: 24px;
 }
 
+img1:hover{
+  background:url(../img/icons/dog-icon4.png);
+}
+
+img2:hover{
+  background-image:url(../img/icons/logs-icon3.png);
+}
+
+img3:hover{
+  background-image:url(../img/icons/gallery-icon4.png);
+}
 
 @media (max-width: 991.98px) { 
-
   body{
     overflow: auto;
   }
+}
+
+@media (max-width: 576px) { 
+
+  #btnLogin{
+    width: 50%;
+   margin-bottom: 10px;
+   margin-left: 6px;
+  }
+
+  #btnCriarConta{
+    width: 50%;
+  }
+
+}
+
+
+.block {
+	position: relative;
+
+}
+
+.block:before, .block:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #58afd1, #ffa500, #E8810C, #FFDB0D, #56E5E8, #5698E8, #526DDE, #52DEB9);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.block:after {
+	filter: blur(50px);
 }
