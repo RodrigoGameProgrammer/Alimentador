@@ -350,19 +350,27 @@ function deletarAgendamento() {
 /* -----------------------------*/
 
 function retornarLogs() {
+	var t = new Array();
 	firebase.database().ref('logs/' + uid).limitToLast(10).orderByValue().on('value', (snap) => {
-		var table = document.getElementById("tabela-log");
-		var i = 1;
+		var i = 0;
 		snap.forEach((childSnapshot) => {
 			var childKey = childSnapshot.key;
 			var childData = new Date(childSnapshot.val());
 			console.log(childKey + ": " + childData);
-			var row = table.insertRow(i);
-			var cell1 = row.insertCell(0);
-			var cell2 = row.insertCell(1);
-			cell1.innerHTML = childData.toLocaleDateString();
-			cell2.innerHTML = childData.toLocaleTimeString();
+			t[i] = childData;
 			i++;
-		});		
+		});
 	});
+	t = t.reverse();
+	var table = document.getElementById("tabela-log");
+	table.innerHTML = " <tr><th>Nº</th><th>Data</th><th>Hora</th></tr>";
+	for(i = 0; i < t.length; i++) {
+		var row = table.insertRow(i+1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		cell1.innerHTML = i+1;
+		cell2.innerHTML = t[i].toLocaleDateString();
+		cell3.innerHTML = t[i].toLocaleTimeString();
+	}
 }
