@@ -84,7 +84,8 @@
         </div>
         <div class="col-xl-12  d-flex justify-content-center">
 
-          <button type="button" class="btn" onclick="mostrarMenu(); trocaIcon2();" onmouseover="hoverImg4()" onmouseout="hoverOutImg4()">
+          <button type="button" class="btn" onclick="mostrarMenu(); trocaIcon2();" onmouseover="hoverImg4()"
+            onmouseout="hoverOutImg4()">
             <img class="ml-4" id="img4" src="img/icons/icon_78px/icon-back-72.png">
           </button>
         </div>
@@ -110,14 +111,16 @@
         </div>
 
         <div class="col-xl-4 d-flex justify-content-center mt-2">
-          <button type="button" class="btn draw-border shadow2" onmouseover="hoverImg2()" onmouseout="hoverOutImg2()">
+          <button type="button" class="btn draw-border shadow2" onclick="retornarLogs()" data-toggle="modal"
+            data-target="#mdlLog" onmouseover="hoverImg2()" onmouseout="hoverOutImg2()">
             <img class="ml-4" src="img/icons/logs-icon2.png" id="img2" style="width: 100px; height: 100px;">
             <p class="mt-3">Registros</p>
           </button>
         </div>
 
         <div class="col-xl-4 d-flex justify-content-center mt-2">
-          <button id="btnGallery" type="button" class="btn draw-border shadow2" onclick="mostrarGaleria(); trocaIcon();" onmouseover="hoverImg3()" onmouseout="hoverOutImg3()">
+          <button id="btnGallery" type="button" class="btn draw-border shadow2" onclick="mostrarGaleria(); trocaIcon();"
+            onmouseover="hoverImg3()" onmouseout="hoverOutImg3()">
             <img src="img/icons/gallery-icon3.png" id="img3" style="width: 100px; height: 100px;">
             <p class="mt-3">Galeria de Fotos</p>
           </button>
@@ -307,8 +310,7 @@
                 name="verIptQtdRacao" disabled />
             </div>
 
-            <a><img
-                src="https://www.animatedimages.org/data/media/202/animated-dog-image-0932.gif" border="0"
+            <a><img src="https://www.animatedimages.org/data/media/202/animated-dog-image-0932.gif" border="0"
                 alt="animated-dog-image-0932" /></a>
 
           </form>
@@ -321,6 +323,38 @@
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         </div>
 
+      </div>
+    </div>
+  </div>
+
+  <!--
+    /* --------------------------------------*/
+    /* ------------- MODAL LOG --------------*/
+    /* --------------------------------------*/
+    -->
+
+  <div class="modal fade mdlLog" id="mdlLog" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content bg-modal2">
+        <div class="modal-header text-center  d-flex justify-content-center">
+          <h5 id="msgModal" class="modal-title label-modal">Registro de Logs</h5>
+        </div>
+
+        <!--Tabela de logs-->
+        <div class="modal-body">
+          <div class="table-responsive-sm">
+            <table id="tabela-log" class="tabela-log table-dark">
+              <tr>
+                <th>Data</th>
+                <th>Hora</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-center">
+          <button id="btnCancelar2" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        </div>
       </div>
     </div>
   </div>

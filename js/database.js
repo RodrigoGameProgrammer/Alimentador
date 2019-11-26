@@ -47,10 +47,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 		if (document.body.contains(document.getElementById("user_id"))) {
 			document.getElementById("user_id").innerHTML = "Bem-Vindo: " + email_id;
 			document.getElementById("user_id").style.color = "white";
-		}else{
+		} else {
 			return;
 		}
-	
+
 		console.log(user);
 	} else {
 		//window.location.replace("login.html");
@@ -83,7 +83,7 @@ function verificarUsuario() {
 
 			if (document.body.contains(btn_cancelar)) {
 				btn_cancelar.style.display = "block";
-			}else{
+			} else {
 				return;
 			}
 		}
@@ -345,3 +345,32 @@ function deletarAgendamento() {
 	$('#mdlVerAgendamento').modal('toggle');
 }
 
+/* -----------------------------*/
+/* ->>>>>> RETORNAR LOGS <<<<<<-*/
+/* -----------------------------*/
+
+function retornarLogs() {
+	var t = new Array();
+	firebase.database().ref('logs/' + uid).limitToLast(10).orderByValue().on('value', (snap) => {
+		var i = 0;
+		snap.forEach((childSnapshot) => {
+			var childKey = childSnapshot.key;
+			var childData = new Date(childSnapshot.val());
+			console.log(childKey + ": " + childData);
+			t[i] = childData;
+			i++;
+		});
+	});
+	t = t.reverse();
+	var table = document.getElementById("tabela-log");
+	table.innerHTML = " <tr><th>Nº</th><th>Data</th><th>Hora</th></tr>";
+	for(i = 0; i < t.length; i++) {
+		var row = table.insertRow(i+1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		cell1.innerHTML = i+1;
+		cell2.innerHTML = t[i].toLocaleDateString();
+		cell3.innerHTML = t[i].toLocaleTimeString();
+	}
+}
