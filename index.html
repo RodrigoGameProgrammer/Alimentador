@@ -329,32 +329,29 @@
 
   <!--
     /* --------------------------------------*/
-    /* ----------- MODAL LOG ------------*/
+    /* ------------- MODAL LOG --------------*/
     /* --------------------------------------*/
     -->
 
   <div class="modal fade mdlLog" id="mdlLog" data-backdrop="static">
-    <ul class="bg-animation"></ul>
-    <a class="dog">
-      <img src="https://www.animatedimages.org/data/media/202/animated-dog-image-0081.gif" border="0"
-        alt="animated-dog-image-0081" />
-    </a>
     <div class="modal-dialog modal-sm">
       <div class="modal-content bg-modal2">
         <div class="modal-header text-center  d-flex justify-content-center">
           <h5 id="msgModal" class="modal-title label-modal">Registro de Logs</h5>
         </div>
 
+        <!--Tabela de logs-->
         <div class="modal-body">
-          <table id="tabela-log">
-            <tr>
-              <th>Nº</th>
-              <th>Data/Hora</th>
-            </tr>
-          </table>
+          <div class="table-responsive-sm">
+            <table id="tabela-log" class="tabela-log table-dark">
+              <tr>
+                <th>Data</th>
+                <th>Hora</th>
+              </tr>
+            </table>
+          </div>
         </div>
 
-        <!--Botão Log-->
         <div class="modal-footer d-flex justify-content-center">
           <button id="btnCancelar2" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         </div>

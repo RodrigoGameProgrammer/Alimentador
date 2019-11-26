@@ -345,21 +345,24 @@ function deletarAgendamento() {
 	$('#mdlVerAgendamento').modal('toggle');
 }
 
+/* -----------------------------*/
+/* ->>>>>> RETORNAR LOGS <<<<<<-*/
+/* -----------------------------*/
+
 function retornarLogs() {
-	firebase.database().ref('logs/' + uid).limitToLast(3).orderByValue().on('value', (snap) => {
-		var content = '';
+	firebase.database().ref('logs/' + uid).limitToLast(10).orderByValue().on('value', (snap) => {
+		var table = document.getElementById("tabela-log");
 		var i = 1;
 		snap.forEach((childSnapshot) => {
 			var childKey = childSnapshot.key;
 			var childData = new Date(childSnapshot.val());
 			console.log(childKey + ": " + childData);
-			content += '<tr>';
-			content += '<td>' + i + '</td>';
-			content += '<td>' + childData.toLocaleString() + '</td>';
-
-			content += '</tr>';
+			var row = table.insertRow(i);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			cell1.innerHTML = childData.toLocaleDateString();
+			cell2.innerHTML = childData.toLocaleTimeString();
 			i++;
-		});
-		$('#tabela-log').append(content);
+		});		
 	});
 }
