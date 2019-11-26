@@ -47,10 +47,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 		if (document.body.contains(document.getElementById("user_id"))) {
 			document.getElementById("user_id").innerHTML = "Bem-Vindo: " + email_id;
 			document.getElementById("user_id").style.color = "white";
-		}else{
+		} else {
 			return;
 		}
-	
+
 		console.log(user);
 	} else {
 		//window.location.replace("login.html");
@@ -83,7 +83,7 @@ function verificarUsuario() {
 
 			if (document.body.contains(btn_cancelar)) {
 				btn_cancelar.style.display = "block";
-			}else{
+			} else {
 				return;
 			}
 		}
@@ -345,3 +345,21 @@ function deletarAgendamento() {
 	$('#mdlVerAgendamento').modal('toggle');
 }
 
+function retornarLogs() {
+	firebase.database().ref('logs/' + uid).limitToLast(3).orderByValue().on('value', (snap) => {
+		var content = '';
+		var i = 1;
+		snap.forEach((childSnapshot) => {
+			var childKey = childSnapshot.key;
+			var childData = new Date(childSnapshot.val());
+			console.log(childKey + ": " + childData);
+			content += '<tr>';
+			content += '<td>' + i + '</td>';
+			content += '<td>' + childData.toLocaleString() + '</td>';
+
+			content += '</tr>';
+			i++;
+		});
+		$('#tabela-log').append(content);
+	});
+}
