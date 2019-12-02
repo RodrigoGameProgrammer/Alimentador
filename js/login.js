@@ -21,7 +21,7 @@ function login() {
 	firebase.auth().signInWithEmailAndPassword(userEmail.value, userPassword.value).then(function () {
 
 		//Login feito com sucesso
-		window.location.href = "index.html";
+		window.location.href = "admin.html";
 
 	}).catch(function (error) {
 
