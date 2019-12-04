@@ -349,8 +349,13 @@ function deletarAgendamento() {
 /* ->>>>>> RETORNAR LOGS <<<<<<-*/
 /* -----------------------------*/
 
+var t = new Array();
+
+var table = document.getElementById("tabela-log");
+
+
 function retornarLogs() {
-	var t = new Array();
+
 	firebase.database().ref('logs/' + uid).limitToLast(10).orderByValue().on('value', (snap) => {
 		var i = 0;
 		snap.forEach((childSnapshot) => {
@@ -360,17 +365,18 @@ function retornarLogs() {
 			t[i] = childData;
 			i++;
 		});
+
+		t = t.reverse();
+		table.innerHTML = "<tr><th>Nº</th><th>Data</th><th>Hora</th></tr>";
+		for (j = 0; j < t.length; j++) {
+			var row = table.insertRow(j + 1);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+			cell1.innerHTML = j + 1;
+			cell2.innerHTML = t[j].toLocaleDateString();
+			cell3.innerHTML = t[j].toLocaleTimeString();
+		}
 	});
-	t = t.reverse();
-	var table = document.getElementById("tabela-log");
-	table.innerHTML = " <tr><th>Nº</th><th>Data</th><th>Hora</th></tr>";
-	for(i = 0; i < t.length; i++) {
-		var row = table.insertRow(i+1);
-		var cell1 = row.insertCell(0);
-		var cell2 = row.insertCell(1);
-		var cell3 = row.insertCell(2);
-		cell1.innerHTML = i+1;
-		cell2.innerHTML = t[i].toLocaleDateString();
-		cell3.innerHTML = t[i].toLocaleTimeString();
-	}
+
 }
